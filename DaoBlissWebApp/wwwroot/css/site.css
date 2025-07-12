@@ -20,3 +20,31 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+font-face {
+    font-family: SVN-Valentina;
+    src: url('/fonts/SVN-Valentina.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+font-face {
+    font-family: SVN-Valentina;
+    src: url('/fonts/SFUGoudyMedium') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+font-face {
+    font-family: SVN-Valentina;
+    src: url('/fonts/GarlicSalt-Regular') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+font-face {
+    font-family: SVN-Valentina;
+    src: url('/fonts/GarlicSalt-Bold') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
