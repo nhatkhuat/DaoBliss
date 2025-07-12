@@ -16,7 +16,6 @@ namespace DaoBlissWebApp
 			builder.Services.AddDbContext<ShopDbContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
 
-   builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ShopDbContext>();
 
 
 			builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
