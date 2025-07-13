@@ -41,85 +41,77 @@
     </style>
 </head>
 <body>
-    <header class="bg-[#1f3a2f]">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between px-4 py-3">
-            <div class="flex flex-col">
-                <!-- Hàng ngang gồm logo và DaoBliss -->
-                <div class="flex items-baseline space-x-2">
-                    <img src="/img/DaoBlissLogo.png"
-                         alt="Logo"
-                         class="h-10 w-auto align-baseline" />
+    <header class="bg-[url('/images/background.jpg')] bg-cover bg-no-repeat">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4 border-b border-[#3f5a4f]">
+                <!-- Logo -->
+                <div class="flex flex-col">
+                    <!-- Hàng ngang gồm logo và DaoBliss -->
+                    <div class="flex items-baseline space-x-2">
+                        <img src="/img/DaoBlissLogo.png"
+                             alt="Logo"
+                             class="h-10 w-auto align-baseline" />
 
-                    <span class="text-white text-[36px] font-playfair leading-none align-baseline"
-                          style="font-family: 'Garlic Salt Regular'">
-                        DaoBliss
-                    </span>
+                        <span class="text-white text-[36px] font-playfair leading-none align-baseline"
+                              style="font-family: 'Garlic Salt Regular'">
+                            DaoBliss
+                        </span>
+                    </div>
+
+
+                    <!-- Slogan phía dưới -->
+                    <p class="text-white text-[14px] font-serif leading-tight mt-0" style="font-family: SVN-Valentina">
+                        Gìn giữ tinh túy núi rừng.
+                    </p>
                 </div>
+                <!-- Thanh tìm kiếm -->
+                <form class="relative flex-1 max-w-xl mx-6" role="search">
+                    <input class="w-full rounded-full border border-[#ddb25a] bg-[#f9f5f0] py-2 pr-10 pl-4 text-[#7a6a5a] placeholder-[#bba87a] focus:outline-none focus:ring-2 focus:ring-[#ddb25a] focus:border-[#ddb25a] text-sm"
+                           placeholder="Tìm kiếm sản phẩm, bài viết,..." type="search" />
+
+                    <button type="submit"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-[#7a6a5a] hover:text-[#ddb25a]"
+                            aria-label="Tìm kiếm">
+                        <i class="fas fa-search fa-lg"></i>
+                    </button>
+                </form>
 
 
-                <!-- Slogan phía dưới -->
-                <p class="text-white text-[14px] font-serif leading-tight mt-0" style="font-family: SVN-Valentina">
-                    Gìn giữ tinh túy núi rừng.
-                </p>
+                <!-- Nút giỏ hàng và thương -->
+                <div class="flex items-center space-x-4">
+                    <button aria-label="Giỏ hàng" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button aria-label="Thương" class="bg-[#a06f1a] text-[#f9f5f0] rounded-full px-4 py-1 text-sm font-semibold flex items-center space-x-2">
+                        <img alt="Hình ảnh con mèo" class="w-6 h-6 rounded-full object-cover" src="https://storage.googleapis.com/a1aa/image/5fb5e5b5-0bc8-4c28-acd5-381c4abfd4f2.jpg" />
+                        <span>User</span>
+                    </button>
+                </div>
             </div>
-
-            <form aria-label="Tìm kiếm sản phẩm, bài viết" class="flex items-center w-full max-w-md mt-3 sm:mt-0 border border-[#9b7a2a] rounded-full bg-white overflow-hidden" role="search">
-                <input aria-label="Tìm kiếm sản phẩm, bài viết" class="flex-grow px-4 py-2 text-sm text-[#1f3a2f] placeholder-[#a3a3a3] focus:outline-none" placeholder="Tìm kiếm sản phẩm, bài viết,..." type="search" />
-                <button aria-label="Tìm kiếm" class="bg-white px-3 py-2 rounded-r-full text-[#0d665c] hover:text-[#0a4a42] transition-colors" type="submit" style="">
-                    <i class="fas fa-search">
-                    </i>
-                </button>
-            </form>
-            <nav class="flex items-center space-x-4 ml-4 mt-3 sm:mt-0">
-                <button aria-label="Giỏ hàng" class="text-[#9b792a] text-lg hover:text-[#c9c9c9] transition-colors">
-                    <i class="fas fa-shopping-cart">
-                    </i>
-                </button>
-                <button aria-label="Tài khoản" class="text-[#9b792a] text-lg hover:text-[#c9c9c9] transition-colors">
-                    <i class="fas fa-user-circle">
-                    </i>
-                </button>
-            </nav>
         </div>
-        <!-- Navigation menu -->
-        <nav class="border-t border-[#2a4a3a]">
-            <ul class="max-w-7xl mx-auto flex flex-wrap justify-center space-x-6 text-white text-sm font-serif py-3" role="menubar">
-                <li role="none">
-                    <a class="!text-[#9b792a] !hover:text-[#c9c9c9] transition-colors" href="#" role="menuitem">
-                        Trang chủ
-                    </a>
-                </li>
-                <li role="none">
-                    <a class="!text-[#9b792a] !hover:text-[#c9c9c9] transition-colors" href="#" role="menuitem">
-                        Về chúng tôi
-                    </a>
-                </li>
-                <li role="none">
-                    <a class="!text-[#9b792a] !hover:text-[#c9c9c9] transition-colors" href="#" role="menuitem">
-                        Mua sắm
-                    </a>
-                </li>
-                <li role="none">
-                    <a class="!text-[#9b792a] !hover:text-[#c9c9c9] transition-colors" href="#" role="menuitem">
-                        Blog
-                    </a>
-                </li>
-                <li role="none">
-                    <a class="!text-[#9b792a] !hover:text-[#c9c9c9] transition-colors" href="#" role="menuitem">
-                        Liên hệ
-                    </a>
-                </li>
-            </ul>
+
+        <!-- Menu -->
+        <nav>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ul class="flex justify-center space-x-10 text-[#f9f5f0] text-base font-normal py-3">
+                    <li><a href="#" class="hover:text-[#ddb25a]">Trang chủ</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Về chúng tôi</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Mua sắm</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Blog</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Liên hệ</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="text-[#9b7a2a] font-serif">
-        <div class="max-w-7xl mx-auto px-6 sm:px-12 py-12 grid grid-cols-1 sm:grid-cols-4 gap-8">
+    <footer class="bg-[url('/images/background.jpg')] bg-cover bg-no-repeat">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-4 gap-8">
             <div class="space-y-2">
                 <div class="flex flex-col">
                     <!-- Hàng ngang gồm logo và DaoBliss -->
@@ -140,74 +132,68 @@
                         Gìn giữ tinh túy núi rừng.
                     </p>
                 </div>
-                <div class="flex space-x-3 mt-4 text-[#9b7a2a]">
-                    <a aria-label="Facebook" class="!text-[#9b792a] !hover:text-white" href="#">
+                <div class="flex space-x-4 text-gray-400 text-sm mt-3">
+                    <a aria-label="Facebook" class="hover:text-[#daa520]" href="#">
                         <i class="fab fa-facebook-f">
                         </i>
                     </a>
-                    <a aria-label="LinkedIn" class="!text-[#9b792a] !hover:text-white" href="#">
+                    <a aria-label="LinkedIn" class="hover:text-[#daa520]" href="#">
                         <i class="fab fa-linkedin-in">
                         </i>
                     </a>
-                    <a aria-label="YouTube" class="!text-[#9b792a] !hover:text-white" href="#">
+                    <a aria-label="YouTube" class="hover:text-[#daa520]" href="#">
                         <i class="fab fa-youtube">
                         </i>
                     </a>
-                    <a aria-label="Instagram" class="!text-[#9b792a] !hover:text-white" href="#">
+                    <a aria-label="Instagram" class="hover:text-[#daa520]" href="#">
                         <i class="fab fa-instagram">
                         </i>
                     </a>
                 </div>
             </div>
             <div>
-                <h4 class="text-[#9b7a2a] font-semibold mb-3">
+                <h3 class="text-[#ddb25a] font-semibold mb-3">
                     Trang
-                </h4>
-                <ul class="space-y-1 text-sm">
+                </h3>
+                <ul class="space-y-2 text-white">
                     <li>
-                        <a class="!text-[#9b792a] !hover:text-white" href="#">
-                            &gt; Trang chủ
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                            Trang chủ
                         </a>
                     </li>
                     <li>
-                        <a class="!text-[#9b792a] !hover:text-white" href="#">
-                            &gt; Về chúng tôi
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                            Về chúng tôi
                         </a>
                     </li>
                     <li>
-                        <a class="!text-[#9b792a] !hover:text-white" href="#">
-                            &gt; Mua sắm
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                            Mua sắm
                         </a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-[#9b7a2a] font-semibold mb-3">
+                <h3 class="text-[#ddb25a] font-semibold mb-3">
                     Cửa hàng của chúng tôi
-                </h4>
-                <ul class="space-y-1 text-sm">
+                </h3>
+                <ul class="space-y-2 text-white">
                     <li>
-                        <a class="!text-[#9b792a] !hover:text-white" href="#">
-                            Chính sách bảo mật
-                        </a>
+                        Chính sách bảo mật
                     </li>
                     <li>
-                        <a class="!text-[#9b792a] !hover:text-white" href="#">
-                            Điều khoản và Điều kiện
-                        </a>
+                        Điều khoản và Điều kiện
                     </li>
                     <li>
-                        <a class="!text-[#9b792a] !hover:text-white" href="#">
-                            Trung tâm hỗ trợ
-                        </a>
+                        Trung tâm hỗ trợ
                     </li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-[#9b7a2a] font-semibold mb-3">
+                <h3 class="text-[#ddb25a] font-semibold mb-3">
                     Liên hệ
-                </h4>
-                <address class="not-italic text-sm space-y-2">
+                </h3>
+                <address class="not-italic space-y-2 text-white">
                     <p>
                         Số 5, đường Cầu Giấy, Quan Hoa, Hà Nội
                     </p>
