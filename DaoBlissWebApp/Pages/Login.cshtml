@@ -26,31 +26,36 @@
 <body class="min-h-screen flex flex-col">
     <div class="flex flex-1">
         <!-- Left side -->
-        <div class="hidden md:flex flex-col justify-center items-center w-1/2 bg-[#1b3a2a] relative">
-            <img alt="Illustration of a woman in traditional clothes holding a basket with plants and flowers, standing next to tall plants and orange flowers on a dark green patterned background" class="absolute left-0 top-0 h-full object-cover" height="800" src="https://storage.googleapis.com/a1aa/image/b64de9ef-6fd5-4485-0156-1300a197c074.jpg" style="max-width: 600px;" width="600" />
-            <div class="z-10 text-center text-white max-w-xs">
-                <div class="flex justify-center items-center space-x-2 mb-2">
-                    <img alt="Golden leaf logo icon" class="w-10 h-10" height="40" src="https://storage.googleapis.com/a1aa/image/62280781-9dc5-45a4-129f-417f02aecc90.jpg" width="40" />
+        <div class="hidden md:flex flex-col justify-center items-start w-1/2 bg-[#1b3a2a] relative">
+            <img alt="Illustration of a woman in traditional clothes holding a basket with plants and flowers, standing next to tall plants and orange flowers on a dark green patterned background"
+                 class="absolute left-0 top-0 h-screen w-auto object-cover" height="800"
+                 src="~/img/DaoblissLogin.jpg" />
+            <div class="z-10 text-left text-white max-w-xs ml-auto pr-8">
+                <div class="flex justify-start items-center space-x-2 mb-2">
+                    <img alt="Golden leaf logo icon" class="w-10 h-10" height="40" 
+                         src="/img/DaoBlissLogo.png" width="40" style="width: 102px; 
+height: 119.6px; transform: translate(-52px, 0px); position: relative; left: 47px; top: -17px;">
                     <h1 class="font-playfair text-5xl font-normal leading-tight">
                         DaoBliss
                     </h1>
                 </div>
-                <p class="font-playfair text-white text-lg mb-8">
+                <p class="font-playfair text-white text-2xl mb-8">
                     Gìn giữ tinh túy núi rừng
                 </p>
-                <button class="bg-[#a9742f] text-white rounded-full px-8 py-3 text-lg font-playfair hover:bg-[#8c6325] transition" type="button">
+                <button class="bg-[#a9742f] text-white rounded-full px-8 py-3 text-lg font-playfair hover:bg-[#8c6325] transition" type="button" style="position: relative; left: 127px; top: -15px;">
                     Về trang chủ
                 </button>
             </div>
             <div class="absolute bottom-0 left-0 w-full h-4 bg-[#a9742f]">
             </div>
         </div>
+
         <!-- Right side -->
         <div class="flex flex-col justify-center items-center w-full md:w-1/2 bg-white relative px-8 py-16">
             <h2 class="font-playfair text-[#1b3a2a] text-5xl mb-8">
                 Đăng Nhập
             </h2>
-            <form class="w-full max-w-sm space-y-4">
+            <form class="w-full max-w-sm space-y-4" method="post" asp-page="homepage">
                 <div>
                     <label class="block mb-1 text-[#1b3a2a] text-base font-normal" for="username">
                         Tài khoản:

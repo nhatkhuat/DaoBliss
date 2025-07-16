@@ -2,30 +2,33 @@
 @model DaoBlissWebApp.Pages.ProductListModel
 @{
     <html lang="vi">
-    <head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <title>
-            DaoBliss Mua sắm
-        </title>
-        <script src="https://cdn.tailwindcss.com">
-        </script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
-        <style>
-            body {
-                font-family: 'Roboto', sans-serif;
-            }
+        <head>
+            <meta charset="utf-8" />
+            <meta content="width=device-width, initial-scale=1" name="viewport" />
+            <title>
+                DaoBliss Mua sắm
+            </title>
+            <script src="https://cdn.tailwindcss.com">
+            </script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
+            <style>
+                body {
+                    font-family: 'Roboto', sans-serif;
+                }
 
-            .font-playfair {
-                font-family: 'Playfair Display', serif;
-            }
-            /* Custom scrollbar hidden for cleaner look */
-            ::-webkit-scrollbar {
-                display: none;
-            }
-        </style>
-    </head>
+                .font-playfair {
+                    font-family: 'Playfair Display', serif;
+                }
+                /* Custom scrollbar hidden for cleaner look */
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+            </style>
+            <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+            <script src="https://files.bpcontent.cloud/2025/07/11/08/20250711083358-FVA851WT.js" defer></script>
+
+        </head>
     <body class="bg-white text-[#1f3a2f]">
         <!-- Header top -->
         <header class="bg-[url('/images/background.jpg')] bg-cover bg-no-repeat">
@@ -144,6 +147,7 @@
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <ul aria-label="Danh sách sản phẩm" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <!-- Repeat 6 products -->
+                <form asp-page="productDetail" method="post">
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
                     <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
@@ -161,11 +165,14 @@
                             <i class="fas fa-shopping-cart">
                             </i>
                         </button>
-                        <button aria-label="Mua ngay" class="rounded-full bg-[#1f3a2f] text-[#f9f5f0] text-xs font-semibold py-1 px-5 hover:bg-[#3f5a4f] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
+
+                        <button type="submit" aria-label="Mua ngay" class="rounded-full bg-[#1f3a2f] text-[#f9f5f0] text-xs font-semibold py-1 px-5 hover:bg-[#3f5a4f] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
                             Mua ngay
                         </button>
+
                     </div>
                 </li>
+                </form>
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
                     <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
@@ -398,7 +405,7 @@
             </div>
         </footer>
     </body>
-    </html>
+</html>
 
 
 }
