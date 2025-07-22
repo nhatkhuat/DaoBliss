@@ -23,28 +23,36 @@ body {
 
 font-face {
     font-family: SVN-Valentina;
-    src: url('/fonts/SVN-Valentina.ttf') format('ttf');
+    src: url('/font/SVN-Valentina.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 font-face {
-    font-family: SVN-Valentina;
-    src: url('/fonts/SFUGoudyMedium') format('ttf');
+    font-family: SFUGoudyMedium;
+    src: url('/font/SFUGoudyMedium') format('ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 font-face {
-    font-family: SVN-Valentina;
-    src: url('/fonts/GarlicSalt-Regular') format('otf');
+    font-family: GarlicSalt-Regular;
+    src: url('/font/GarlicSalt-Regular') format('otf');
     font-weight: normal;
     font-style: normal;
 }
 
 font-face {
-    font-family: SVN-Valentina;
-    src: url('/fonts/GarlicSalt-Bold') format('otf');
+    font-family: GarlicSalt-Bold;
+    src: url('/font/GarlicSalt-Bold') format('otf');
     font-weight: normal;
     font-style: normal;
 }
+
+font-face {
+    font-family: StenciliqoExtruded4F;
+    src: url('/font/StenciliqoExtruded4F') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
