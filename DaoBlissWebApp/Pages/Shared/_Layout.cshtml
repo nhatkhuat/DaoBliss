@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,38 +7,230 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DaoBlissWebApp.styles.css" asp-append-version="true" />
+    <style>
+        a {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        header {
+            background-image: url('/img/DaoblissBackground.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f9f8f0;
+            color: #1f3a2f;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", serif;
+        }
+        /* Custom scrollbar for slider arrows */
+        .slick-arrow {
+            background: transparent !important;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+
+        footer {
+            background-image: url('/img/DaoblissBackground.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        button[aria-label="Cart"],
+        button[aria-label="Search-Icon"] {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+            box-shadow: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            max-width: 100% !important;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">DaoBlissWebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <header class="bg-[url('/img/background.jpg')] bg-cover bg-no-repeat">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4 border-b border-[#3f5a4f]">
+                <!-- Logo -->
+                <div class="flex flex-col">
+                    <!-- Hàng ngang gồm logo và DaoBliss -->
+                    <div class="flex items-baseline space-x-2">
+                        <img src="/img/DaoBlissLogo.png"
+                             alt="Logo"
+                             class="h-10 w-auto align-baseline" />
+
+                        <span class="text-white text-[36px] font-playfair leading-none align-baseline"
+                              style="font-family: 'Garlic Salt Regular'">
+                            DaoBliss
+                        </span>
+                    </div>
+
+
+                    <!-- Slogan phía dưới -->
+                    <p class="text-white text-[15.5px] font-serif leading-tight mt-0" style="font-family: StenciliqoExtruded4F ☞">
+                        Gìn giữ tinh túy núi rừng
+                    </p>
                 </div>
+                <!-- Thanh tìm kiếm -->
+                <form class="relative flex-1 max-w-xl mx-6" role="search">
+                    <input class="w-full rounded-full border border-[#ddb25a] bg-[#f9f5f0] py-2 pr-10 pl-4 text-[#7a6a5a] placeholder-[#bba87a] focus:outline-none focus:ring-2 focus:ring-[#ddb25a] focus:border-[#ddb25a] text-sm"
+                           placeholder="Tìm kiếm sản phẩm, bài viết,..." type="search" />
+
+                    <button type="submit"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-[#7a6a5a] hover:text-[#ddb25a]"
+                            aria-label="Search-Icon">
+                        <i class="fas fa-search fa-lg"></i>
+                    </button>
+                </form>
+
+
+                <!-- Nút giỏ hàng và Người dùng -->
+                <div class="flex items-center space-x-4">
+                    <button aria-label="Cart" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button aria-label="User-Icon" class="bg-[#a06f1a] text-[#f9f5f0] rounded-full px-2 py-1 text-sm font-semibold flex gap-2 items-center justify-start">
+                        <img alt="Hình ảnh con mèo" class="w-6 h-6 object-cover rounded-full self-center" src="https://storage.googleapis.com/a1aa/image/5fb5e5b5-0bc8-4c28-acd5-381c4abfd4f2.jpg" />
+                        <span>User</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <nav>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ul class="flex justify-center space-x-10 text-[#f9f5f0] text-base font-normal py-3">
+                    <li><a href="#" class="hover:text-[#ddb25a]">Trang chủ</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Về chúng tôi</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Mua sắm</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Blog</a></li>
+                    <li><a href="#" class="hover:text-[#ddb25a]">Liên hệ</a></li>
+                </ul>
             </div>
         </nav>
     </header>
+
+    <!-- Phần chính -->
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-0">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - DaoBlissWebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <!-- Footer -->
+    <footer class="bg-[url('/img/background.jpg')] bg-cover bg-no-repeat">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-4 gap-8">
+            <div class="space-y-2">
+                <div class="flex flex-col">
+                    <!-- Hàng ngang gồm logo và DaoBliss -->
+                    <div class="flex items-baseline space-x-2">
+                        <img src="/img/DaoBlissLogo.png"
+                             alt="Logo"
+                             class="h-10 w-auto align-baseline" />
+
+                        <span class="text-white text-[36px] font-playfair leading-none align-baseline"
+                              style="font-family: 'Garlic Salt Regular'">
+                            DaoBliss
+                        </span>
+                    </div>
+
+
+                    <!-- Slogan phía dưới -->
+                    <p class="text-white text-[15.5px] font-serif leading-tight mt-0" style="font-family: StenciliqoExtruded4F ☞">
+                        Gìn giữ tinh túy núi rừng
+                    </p>
+                </div>
+                <div class="flex space-x-4 text-gray-400 text-sm mt-3">
+                    <a aria-label="Facebook" class="hover:text-[#daa520]" href="#">
+                        <i class="fab fa-facebook-f">
+                        </i>
+                    </a>
+                    <a aria-label="LinkedIn" class="hover:text-[#daa520]" href="#">
+                        <i class="fab fa-linkedin-in">
+                        </i>
+                    </a>
+                    <a aria-label="YouTube" class="hover:text-[#daa520]" href="#">
+                        <i class="fab fa-youtube">
+                        </i>
+                    </a>
+                    <a aria-label="Instagram" class="hover:text-[#daa520]" href="#">
+                        <i class="fab fa-instagram">
+                        </i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-[#ddb25a] font-semibold mb-3">
+                    Trang
+                </h3>
+                <ul class="space-y-2 text-white">
+                    <li>
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                            Trang chủ
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                            Về chúng tôi
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                            Mua sắm
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-[#ddb25a] font-semibold mb-3">
+                    Cửa hàng của chúng tôi
+                </h3>
+                <ul class="space-y-2 text-white">
+                    <li>
+                        Chính sách bảo mật
+                    </li>
+                    <li>
+                        Điều khoản và Điều kiện
+                    </li>
+                    <li>
+                        Trung tâm hỗ trợ
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-[#ddb25a] font-semibold mb-3">
+                    Liên hệ
+                </h3>
+                <address class="not-italic space-y-2 text-white">
+                    <p>
+                        Số 5, đường Cầu Giấy, Quan Hoa, Hà Nội
+                    </p>
+                    <p>
+                        daobliss@gmail.com
+                    </p>
+                    <p>
+                        034 356 4378
+                    </p>
+                </address>
+            </div>
         </div>
     </footer>
 
