@@ -1,0 +1,129 @@
+﻿@page
+@model DaoBlissWebApp.Pages.CartModel
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>
+        DaoBliss Product Page
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+        }
+
+        .font-playfair {
+            font-family: "Playfair Display", serif;
+        }
+    </style>
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/11/08/20250711083358-FVA851WT.js" defer></script>
+
+</head>
+<section aria-label="Banner Giỏ hàng" class="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72">
+    <img alt="Ảnh cuộn tinh dầu màu tím và nến trắng đang cháy mờ ấm áp" class="w-full h-full object-cover" height="200" loading="lazy" src="~/img/banner.png" width="1200" />
+    <h1 class="absolute inset-0 flex items-center justify-center text-white text-4xl sm:text-5xl md:text-6xl font-serif font-semibold select-none backdrop-blur-sm bg-black/50">
+        Giỏ hàng
+    </h1>
+</section>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row gap-8 font-sans text-lg text-[#1f1f1f] bg-gray-50">
+    <!-- Cart table -->
+    <section aria-label="Danh sách sản phẩm trong giỏ hàng" class="flex-1 bg-white border border-[#5a8a5a] rounded-2xl p-6 shadow-md">
+        <table class="w-full border-collapse rounded-2xl overflow-hidden">
+            <thead>
+                <tr class="border-b border-[#5a8a5a] bg-[#f5f5f5] text-[#1f1f1f]">
+                    <th class="text-left py-3 px-4 font-semibold">Sản phẩm</th>
+                    <th class="text-left py-3 px-4 font-semibold">Giá</th>
+                    <th class="text-left py-3 px-4 font-semibold">Số lượng</th>
+                    <th class="text-left py-3 px-4 font-semibold">Tổng</th>
+                    <th class="w-10"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product Row 1 -->
+                <tr class="bg-[#fafafa] border-b border-gray-200">
+                    <td class="py-4 px-4 flex items-center space-x-4">
+                        <img alt="Hũ cao tắm cô đặc" class="w-32 h-28 object-cover rounded-xl shadow-sm" src="~/img/product.png" />
+                        <span class="font-medium">Cao tắm cô đặc</span>
+                    </td>
+                    <td class="py-4 px-4 text-center">150.000</td>
+                    <td class="py-4 px-4">
+                        <div class="flex items-center space-x-2 border border-[#5a8a5a] rounded-md px-2 py-1 bg-[#eef4ee]">
+                            <button type="button" class="px-2 py-1 text-[#1f5a22] text-xl font-bold hover:text-white hover:bg-[#5a8a5a] rounded transition">–</button>
+                            <div class="text-lg font-mono w-8 text-center">01</div>
+                            <button type="button" class="px-2 py-1 text-[#1f5a22] text-xl font-bold hover:text-white hover:bg-[#5a8a5a] rounded transition">+</button>
+                        </div>
+                    </td>
+                    <td class="py-4 px-4 text-center">150.000</td>
+                    <td class="py-4 px-3 text-center">
+                        <button class="text-red-600 text-xl" type="button">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Product Row 2 -->
+                <tr class="bg-[#fafafa]">
+                    <td class="py-4 px-4 flex items-center space-x-4">
+                        <img alt="Xà phòng thảo dược" class="w-32 h-28 object-cover rounded-xl shadow-sm" src="~/img/soap.png" />
+                        <span class="font-medium">Xà phòng thảo dược</span>
+                    </td>
+                    <td class="py-4 px-4 text-center">80.000</td>
+                    <td class="py-4 px-4">
+                        <div class="flex items-center space-x-2 border border-[#5a8a5a] rounded-md px-2 py-1 bg-[#eef4ee]">
+                            <button type="button" class="px-2 py-1 text-[#1f5a22] text-xl font-bold hover:text-white hover:bg-[#5a8a5a] rounded transition">–</button>
+                            <div class="text-lg font-mono w-8 text-center">01</div>
+                            <button type="button" class="px-2 py-1 text-[#1f5a22] text-xl font-bold hover:text-white hover:bg-[#5a8a5a] rounded transition">+</button>
+                        </div>
+                    </td>
+                    <td class="py-4 px-4 text-center">80.000</td>
+                    <td class="py-4 px-3 text-center">
+                        <button class="text-red-600 text-xl" type="button">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Voucher -->
+        <form class="mt-6 flex items-center gap-3">
+            <input class="border border-gray-300 rounded px-3 py-2 text-lg w-48 text-gray-700 placeholder-gray-400" placeholder="Nhập mã giảm giá" type="text" />
+            <button class="bg-[#1f5a22] text-white text-lg font-semibold px-4 py-2 rounded hover:bg-[#164214]" type="submit">Áp dụng</button>
+        </form>
+    </section>
+
+    <!-- Payment summary -->
+    <section aria-label="Thanh toán" class="w-full max-w-xs bg-gradient-to-br from-white via-[#f8fdf8] to-[#eef4ee] border border-[#5a8a5a] rounded-3xl p-6 shadow-lg">
+        <div class="text-[#1f1f1f] text-lg mb-6">
+            <h2 class="text-center font-bold mb-6 text-2xl text-[#1f5a22]">Thanh toán</h2>
+            <p class="mb-4"><span class="font-semibold">Tổng đơn hàng:</span> <span class="float-right font-bold">230.000</span></p>
+            <p class="mb-2 font-semibold">Phương thức thanh toán:</p>
+            <form class="space-y-3">
+                <label class="inline-flex items-center gap-2">
+                    <input class="form-radio text-[#1f5a22]" name="payment" type="radio" value="online" />
+                    <span>Thanh toán online</span>
+                </label>
+                <label class="inline-flex items-center gap-2">
+                    <input class="form-radio text-[#1f5a22]" name="payment" type="radio" value="cod" />
+                    <span>Thanh toán khi nhận hàng</span>
+                </label>
+            </form>
+            <p class="mt-6 font-semibold text-xl border-t pt-4"><span>Tổng tiền:</span> <span class="float-right text-[#1f5a22] font-bold">230.000</span></p>
+        </div>
+        <button class="bg-[#1f5a22] text-white text-lg font-semibold py-3 rounded-xl w-full hover:bg-[#164214] transition duration-300 ease-in-out shadow-md">
+            ĐẶT HÀNG
+        </button>
+    </section>
+</main>
+
+
+</html>
