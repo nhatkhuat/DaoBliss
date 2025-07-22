@@ -60,10 +60,13 @@
                             Tất cả
                         </option>
                         <option>
-                            Loại 1
+                            Cao tắm
                         </option>
+                    <option>
+                        Xà phòng
+                    </option>
                         <option>
-                            Loại 2
+                            Bộ quà tặng
                         </option>
                     </select>
                 </div>
@@ -88,15 +91,17 @@
                 <!-- Repeat 6 products -->
                 <form asp-page="productDetail" method="post">
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
-                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
+                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="~/img/product.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
-                        Sản phẩm 1
+                        Cao tắm cô đặc
                     </h2>
                     <p aria-label="Mô tả sản phẩm" class="text-[#7a6a5a] text-sm mb-1">
-                        Mô tả ngắn cho sản phẩm 1
+                    Công thức được chiết xuất từ
+                    phương pháp tắm truyền thống của người Dao Đỏ
+                    với hơn 20 loại thảo mộc rừng quý hiếm.
                     </p>
                     <p aria-label="Giá sản phẩm" class="text-[#1f3a2f] font-normal text-base mb-3">
-                        $10.99
+                        150.000 VNĐ
                     </p>
                     <div class="flex space-x-3">
                         <button aria-label="Thêm vào giỏ hàng" class="flex items-center justify-center gap-1 rounded-full border border-[#a06f1a] bg-[#a06f1a]/50 text-[#f9f5f0] text-xs font-semibold py-1 px-3 hover:bg-[#a06f1a] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
@@ -113,15 +118,15 @@
                 </li>
                 </form>
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
-                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
+                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/img/soap.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
-                        Sản phẩm 1
+                        Xà phòng thảo dược
                     </h2>
                     <p aria-label="Mô tả sản phẩm" class="text-[#7a6a5a] text-sm mb-1">
-                        Mô tả ngắn cho sản phẩm 1
+                    Công thức được chiết xuất từ các loại thảo mộc truyền thống như nghệ, gừng, quế, lá sả và cam thảo, kết hợp với dầu dừa nguyên chất, glycerin thực vật và tinh dầu tự nhiên.
                     </p>
                     <p aria-label="Giá sản phẩm" class="text-[#1f3a2f] font-normal text-base mb-3">
-                        $10.99
+                        80.000 VNĐ
                     </p>
                     <div class="flex space-x-3">
                         <button aria-label="Thêm vào giỏ hàng" class="flex items-center justify-center gap-1 rounded-full border border-[#a06f1a] bg-[#a06f1a]/50 text-[#f9f5f0] text-xs font-semibold py-1 px-3 hover:bg-[#a06f1a] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
@@ -135,15 +140,17 @@
                     </div>
                 </li>
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
-                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
+                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="~/img/footbag.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
-                        Sản phẩm 1
+                    Túi lọc ngâm chân thảo dược
                     </h2>
                     <p aria-label="Mô tả sản phẩm" class="text-[#7a6a5a] text-sm mb-1">
-                        Mô tả ngắn cho sản phẩm 1
+                    Hỗn hợp thảo dược truyền thống này bao gồm gừng khô, quế dại,
+                    cây kim ngân, lá sả, bạc hà, lá lốt,
+                    ngải cứu, hoắc hương, và rau má, cùng nhiều loại khác.
                     </p>
                     <p aria-label="Giá sản phẩm" class="text-[#1f3a2f] font-normal text-base mb-3">
-                        $10.99
+                        150.000 VNĐ
                     </p>
                     <div class="flex space-x-3">
                         <button aria-label="Thêm vào giỏ hàng" class="flex items-center justify-center gap-1 rounded-full border border-[#a06f1a] bg-[#a06f1a]/50 text-[#f9f5f0] text-xs font-semibold py-1 px-3 hover:bg-[#a06f1a] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
@@ -157,15 +164,15 @@
                     </div>
                 </li>
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
-                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
+                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="~/img/smallgift.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
-                        Sản phẩm 1
+                    Bộ quà tặng DaoBliss 1
                     </h2>
                     <p aria-label="Mô tả sản phẩm" class="text-[#7a6a5a] text-sm mb-1">
-                        Mô tả ngắn cho sản phẩm 1
+                    Những món quà này được đóng gói trong bao bì trang nhã, tạo nên sự kết nối ý nghĩa giữa sản phẩm và tinh thần biết ơn đối với người dùng.
                     </p>
                     <p aria-label="Giá sản phẩm" class="text-[#1f3a2f] font-normal text-base mb-3">
-                        $10.99
+                        239.000 VNĐ
                     </p>
                     <div class="flex space-x-3">
                         <button aria-label="Thêm vào giỏ hàng" class="flex items-center justify-center gap-1 rounded-full border border-[#a06f1a] bg-[#a06f1a]/50 text-[#f9f5f0] text-xs font-semibold py-1 px-3 hover:bg-[#a06f1a] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
@@ -179,15 +186,15 @@
                     </div>
                 </li>
                 <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
-                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
+                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="~/img/largegift.png" width="300" />
                     <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
-                        Sản phẩm 1
+                    Bộ quà tặng DaoBliss 2
                     </h2>
                     <p aria-label="Mô tả sản phẩm" class="text-[#7a6a5a] text-sm mb-1">
-                        Mô tả ngắn cho sản phẩm 1
+                    Những món quà này được đóng gói trong bao bì trang nhã, tạo nên sự kết nối ý nghĩa giữa sản phẩm và tinh thần biết ơn đối với người dùng.
                     </p>
                     <p aria-label="Giá sản phẩm" class="text-[#1f3a2f] font-normal text-base mb-3">
-                        $10.99
+                        393.000 VNĐ
                     </p>
                     <div class="flex space-x-3">
                         <button aria-label="Thêm vào giỏ hàng" class="flex items-center justify-center gap-1 rounded-full border border-[#a06f1a] bg-[#a06f1a]/50 text-[#f9f5f0] text-xs font-semibold py-1 px-3 hover:bg-[#a06f1a] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
@@ -200,28 +207,7 @@
                         </button>
                     </div>
                 </li>
-                <li class="bg-white rounded-md shadow-sm p-4 flex flex-col" role="listitem" tabindex="0">
-                    <img alt="Bộ sản phẩm DaoBliss gồm hai lọ thủy tinh có nắp tre màu vàng, nhãn xanh lá cây, đặt trên nền sáng" class="w-full h-full object-cover rounded-md mb-3" height="200" loading="lazy" src="/images/product.png" width="300" />
-                    <h2 aria-label="Tên sản phẩm" class="font-playfair text-lg text-[#1f3a2f] mb-1">
-                        Sản phẩm 1
-                    </h2>
-                    <p aria-label="Mô tả sản phẩm" class="text-[#7a6a5a] text-sm mb-1">
-                        Mô tả ngắn cho sản phẩm 1
-                    </p>
-                    <p aria-label="Giá sản phẩm" class="text-[#1f3a2f] font-normal text-base mb-3">
-                        $10.99
-                    </p>
-                    <div class="flex space-x-3">
-                        <button aria-label="Thêm vào giỏ hàng" class="flex items-center justify-center gap-1 rounded-full border border-[#a06f1a] bg-[#a06f1a]/50 text-[#f9f5f0] text-xs font-semibold py-1 px-3 hover:bg-[#a06f1a] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
-                            Thêm vào
-                            <i class="fas fa-shopping-cart">
-                            </i>
-                        </button>
-                        <button aria-label="Mua ngay" class="rounded-full bg-[#1f3a2f] text-[#f9f5f0] text-xs font-semibold py-1 px-5 hover:bg-[#3f5a4f] focus:outline-none focus:ring-2 focus:ring-[#a06f1a]">
-                            Mua ngay
-                        </button>
-                    </div>
-                </li>
+                
             </ul>
             <!-- Pagination -->
             <nav aria-label="Phân trang" class="mt-8 flex justify-center items-center space-x-3 text-[#1f3a2f] text-lg font-normal">

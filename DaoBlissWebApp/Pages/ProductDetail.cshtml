@@ -33,7 +33,7 @@
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-20">
             <div class="flex flex-col md:flex-row md:space-x-16 items-center md:items-start">
                 <div class="w-full md:w-1/2 rounded-lg overflow-hidden">
-                    <img alt="Two DaoBliss products with green labels and bamboo wooden lids on white background" class="w-full h-auto rounded-lg object-cover" height="400" src="/images/product.png" width="600" />
+                    <img alt="Two DaoBliss products with green labels and bamboo wooden lids on white background" class="w-full h-auto rounded-lg object-cover" height="400" src="~/img/product.png" width="600" />
                 </div>
                 <div class="w-full md:w-1/2 mt-8 md:mt-0">
                     <h1 class="font-playfair text-4xl text-black mb-3 leading-tight" style="line-height: 1.1">
@@ -55,22 +55,20 @@
                         Xem các phản hồi về sản phẩm
                     </a>
                     <p class="text-gray-500 text-sm mb-3 leading-relaxed">
-                        Mô tả cho sản phẩm 1. Gồm các thông tin về nguồn gốc, thành phần,
-                        cách sử dụng,...
+                    Tất cả các thành phần đều được thu hoạch thủ công một cách cẩn thận và bền vững từ vùng cao nguyên nguyên sơ Tây Bắc Việt Nam, đảm bảo độ tinh khiết và nguyên bản trong từng sản phẩm.
                         <br />
-                        Các thông tin khác có thể về chính sách bán hàng, chính sách bảo
-                        mật,...
+                    Các sản phẩm thảo dược này mang lại sự thư giãn sâu, giúp giảm căng thẳng và cải thiện giấc ngủ. Chúng cũng hiệu quả trong việc giảm đau khớp và hỗ trợ lưu thông máu khỏe mạnh. Với đặc tính kháng khuẩn tự nhiên, chúng giúp làm sạch da và hỗ trợ điều trị các tình trạng da nhẹ như rôm sảy và viêm da dị ứng.
                     </p>
                     <div class="flex space-x-2 mb-4">
                         <span class="text-xs text-gray-400 bg-gray-300 rounded-full px-3 py-1 select-none">
                             150ml
                         </span>
                         <span class="text-xs text-white bg-[#1f3a2d] rounded-full px-3 py-1 select-none">
-                            250ml
+                            350ml
                         </span>
                     </div>
                     <p class="text-2xl font-playfair mb-4">
-                        149.000 VNĐ
+                        150.000 VNĐ
                     </p>
                     <div class="mb-6">
                         <label class="block mb-1 text-lg font-normal text-black" for="quantity">
@@ -105,55 +103,68 @@
                 </div>
             </div>
             <!-- Related products -->
-            <section class="mt-16">
-                <h2 class="text-xl font-semibold mb-6">
-                    Related products
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <article class="rounded-md overflow-hidden">
-                        <img alt="DaoBliss Nat Blase Facial &amp; Soap Box and Jar with walnuts on dark green background" class="w-full h-auto object-cover rounded-md" height="250" src="/images/product.png" width="400" />
-                        <div class="mt-2 text-sm text-black font-playfair">
-                            <h3 class="mb-1">
-                                Sản phẩm 2
-                            </h3>
-                            <p class="text-gray-500 mb-1">
-                                Mô tả cho sản phẩm 2
-                            </p>
-                            <p>
-                                120.000 VNĐ
-                            </p>
-                        </div>
-                    </article>
-                    <article class="rounded-md overflow-hidden">
-                        <img alt="DaoBliss Nat Blase Facial &amp; Soap Box and Jar with walnuts on dark green background" class="w-full h-auto object-cover rounded-md" height="250" src="/images/product.png" width="400" />
-                        <div class="mt-2 text-sm text-black font-playfair">
-                            <h3 class="mb-1">
-                                Sản phẩm 2
-                            </h3>
-                            <p class="text-gray-500 mb-1">
-                                Mô tả cho sản phẩm 2
-                            </p>
-                            <p>
-                                120.000 VNĐ
-                            </p>
-                        </div>
-                    </article>
-                    <article class="rounded-md overflow-hidden">
-                        <img alt="DaoBliss Nat Blase Facial &amp; Soap Box and Jar with walnuts on dark green background" class="w-full h-auto object-cover rounded-md" height="250" src="/images/product.png" width="400" />
-                        <div class="mt-2 text-sm text-black font-playfair">
-                            <h3 class="mb-1">
-                                Sản phẩm 2
-                            </h3>
-                            <p class="text-gray-500 mb-1">
-                                Mô tả cho sản phẩm 2
-                            </p>
-                            <p>
-                                120.000 VNĐ
-                            </p>
-                        </div>
-                    </article>
-                </div>
-            </section>
+        <section class="mt-16 font-inter text-[#1f1f1f]">
+            <h2 class="text-2xl font-semibold mb-6 font-playfair text-[#1f5a22]">
+                Sản phẩm liên quan
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Product 1 -->
+                <article class="rounded-xl overflow-hidden shadow-md border border-gray-200 bg-white transition hover:shadow-lg">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img alt="Xà phòng thảo dược" class="w-full h-full object-cover" src="~/img/soap.png" />
+                    </div>
+                    <div class="p-4 text-sm">
+                        <h3 class="mb-1 font-playfair font-semibold text-lg text-[#1f5a22]">
+                            Xà phòng thảo dược
+                        </h3>
+                        <p class="text-gray-500 mb-1 text-sm">
+                            Làm sạch dịu nhẹ, dưỡng ẩm từ thảo dược tự nhiên.
+                        </p>
+                        <p class="font-bold text-[#1f5a22] text-base">
+                            80.000 VNĐ
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="rounded-xl overflow-hidden shadow-md border border-gray-200 bg-white transition hover:shadow-lg">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img alt="Túi lọc ngâm chân" class="w-full h-full object-cover" src="/img/footbag.png" />
+                    </div>
+                    <div class="p-4 text-sm">
+                        <h3 class="mb-1 font-playfair font-semibold text-lg text-[#1f5a22]">
+                            Túi lọc ngâm chân thảo dược
+                        </h3>
+                        <p class="text-gray-500 mb-1 text-sm">
+                            Giúp thư giãn, giảm nhức mỏi chân hiệu quả.
+                        </p>
+                        <p class="font-bold text-[#1f5a22] text-base">
+                            150.000 VNĐ
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="rounded-xl overflow-hidden shadow-md border border-gray-200 bg-white transition hover:shadow-lg">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img alt="Bộ quà tặng DaoBliss" class="w-full h-full object-cover" src="/img/smallgift.png" />
+                    </div>
+                    <div class="p-4 text-sm">
+                        <h3 class="mb-1 font-playfair font-semibold text-lg text-[#1f5a22]">
+                            Bộ quà tặng DaoBliss 1
+                        </h3>
+                        <p class="text-gray-500 mb-1 text-sm">
+                            Bộ quà dưỡng da nhẹ nhàng, tặng người thân yêu.
+                        </p>
+                        <p class="font-bold text-[#1f5a22] text-base">
+                            239.000 VNĐ
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
         </main>
         
     </body>
