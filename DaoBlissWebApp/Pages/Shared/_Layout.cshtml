@@ -69,8 +69,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between py-4 border-b border-[#3f5a4f]">
                 <!-- Logo -->
-                <div class="flex flex-col">
+                <div class="flex flex-col" href="HomePage.cshtml">
                     <!-- Hàng ngang gồm logo và DaoBliss -->
+                    <a href="/HomePage">
                     <div class="flex items-baseline space-x-2">
                         <img src="/img/DaoBlissLogo.png"
                              alt="Logo"
@@ -87,6 +88,7 @@
                     <p class="text-white text-[15.5px] font-serif leading-tight mt-0" style="font-family: StenciliqoExtruded4F ☞">
                         Gìn giữ tinh túy núi rừng
                     </p>
+                    </a>
                 </div>
                 <!-- Thanh tìm kiếm -->
                 <form class="relative flex-1 max-w-xl mx-6" role="search">
@@ -104,7 +106,9 @@
                 <!-- Nút giỏ hàng và Người dùng -->
                 <div class="flex items-center space-x-4">
                     <button aria-label="Cart" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl">
-                        <i class="fas fa-shopping-cart"></i>
+                        <a asp-page="/Cart" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
                     </button>
                     <button aria-label="User-Icon" class="bg-[#a06f1a] text-[#f9f5f0] rounded-full px-2 py-1 text-sm font-semibold flex gap-2 items-center justify-start">
                         <img alt="Hình ảnh con mèo" class="w-6 h-6 object-cover rounded-full self-center" src="https://storage.googleapis.com/a1aa/image/5fb5e5b5-0bc8-4c28-acd5-381c4abfd4f2.jpg" />
@@ -118,10 +122,10 @@
         <nav>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ul class="flex justify-center space-x-10 text-[#f9f5f0] text-base font-normal py-3">
-                    <li><a href="#" class="hover:text-[#ddb25a]">Trang chủ</a></li>
-                    <li><a href="#" class="hover:text-[#ddb25a]">Về chúng tôi</a></li>
-                    <li><a href="#" class="hover:text-[#ddb25a]">Mua sắm</a></li>
-                    <li><a href="#" class="hover:text-[#ddb25a]">Blog</a></li>
+                    <li><a href="/HomePage" class="hover:text-[#ddb25a]">Trang chủ</a></li>
+                    <li><a href="/AboutUs" class="hover:text-[#ddb25a]">Về chúng tôi</a></li>
+                    <li><a href="/ProductList" class="hover:text-[#ddb25a]">Mua sắm</a></li>
+                    <li><a href="/Blogs" class="hover:text-[#ddb25a]">Blog</a></li>
                     <li><a href="#" class="hover:text-[#ddb25a]">Liên hệ</a></li>
                 </ul>
             </div>
@@ -183,17 +187,17 @@
                 </h3>
                 <ul class="space-y-2 text-white">
                     <li>
-                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="/HomePage">
                             Trang chủ
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="/AboutUs">
                             Về chúng tôi
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="#">
+                        <a class="hover:text-[#ddb25a] focus:text-[#ddb25a] focus:outline-none" href="/ProductList">
                             Mua sắm
                         </a>
                     </li>
