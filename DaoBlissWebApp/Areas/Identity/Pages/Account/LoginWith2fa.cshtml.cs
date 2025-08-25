@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using DaoBlissWebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using Domain.Entities;
 
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 {
