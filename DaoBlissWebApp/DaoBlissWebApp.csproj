@@ -7,6 +7,7 @@
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Bogus" Version="35.6.3" />
+		<PackageReference Include="CloudinaryDotNet" Version="1.27.7" />
 		<PackageReference Include="MailKit" Version="4.13.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="8.0.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.17" />
@@ -26,6 +27,7 @@
 		<PackageReference Include="MimeKit" Version="4.13.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="wwwroot\img\" />
+	  <ProjectReference Include="..\Application\Application.csproj" />
+	  <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 </Project>

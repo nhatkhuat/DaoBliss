@@ -1,5 +1,6 @@
-using DaoBlissWebApp.Data;
-using DaoBlissWebApp.Models;
+using Application;
+using Domain.Entities;
+using Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,11 +12,8 @@ namespace DaoBlissWebApp
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddRazorPages();
-            builder.Services.AddDbContext<ShopDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ShopDbContext>()
-                .AddDefaultTokenProviders();
+			// Infrastructure.DependencyInjection
+			builder.Services.AddInfrastructureServices(builder.Configuration);
 
 			var app = builder.Build();
 
