@@ -1,0 +1,32 @@
+﻿@page "/admin/roles"
+@model DaoBlissWebApp.Areas.Admin.Pages.Role.IndexModel
+@{
+    ViewData["Title"] = "Role list";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"/>
+
+<div class="mb-2">
+    <a class="btn btn-secondary" asp-page="./Create">Create new role</a>
+    <a class="btn btn-secondary" asp-page="../User/Index">Manage users</a>
+</div>
+
+
+<table class="table"> 
+    <tr>
+        <th>Role Name</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var role in Model.Roles)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        <a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-roleid="@role.Id">Edit</a>
+                        <a class="btn btn-success btn-sm" asp-page="./Delete" asp-route-roleid="@role.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+</table>

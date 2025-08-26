@@ -11,14 +11,13 @@
     <title>
         DaoBliss
     </title>
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    @*<script src="https://cdn.tailwindcss.com">
+    </script>*@
     <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
-    <script src="https://files.bpcontent.cloud/2025/07/11/08/20250711083358-FVA851WT.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    @*<script src="https://files.bpcontent.cloud/2025/07/11/08/20250711083358-FVA851WT.js" defer></script>*@
+    @*<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />*@
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />*@
     <style>
-
         header {
             background-image: url('/img/DaoblissBackground.jpg');
             background-repeat: no-repeat;
@@ -27,7 +26,7 @@
         }
 
         body {
-            font-family: "Roboto", sans-serif;
+/*            font-family: "Roboto", sans-serif;*/
             background-color: #f9f8f0;
             color: #1f3a2f;
         }
@@ -49,7 +48,7 @@
             background-position: bottom;
         }
     </style>
-    <script src="https://cdn.tailwindcss.com">
+    @*<script src="https://cdn.tailwindcss.com">
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;display=swap" rel="stylesheet" />
     <style>
@@ -60,8 +59,13 @@
         .font-playfair {
             font-family: "Playfair Display", serif;
         }
-    </style>
-
+    </style>*@
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#57b5e7', secondary: '#8dd3c7' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 </head>
 <body class="relative">
     
@@ -70,13 +74,13 @@
         <img alt="Vietnamese woman in traditional clothing sorting tea leaves in a large bamboo basket outdoors with greenery and motorbike in background" class="w-full h-full object-cover brightness-50" height="900"
              src="~/img/slider1.png" width="1920" />
         <div class="absolute inset-y-0 left-12 flex flex-col justify-center max-w-4xl text-left text-white">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-normal leading-tight mb-2">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl leading-tight mb-2">
                 Từ núi rừng Tây Bắc
             </h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-serif mb-6">
+            <p class="text-lg sm:text-xl md:text-2xl  mb-6">
                 cùng chúng tôi tìm hiểu câu chuyện văn hóa Việt Nam muôn màu...
             </p>
-            <button class="bg-green-700 hover:bg-green-800 transition-colors text-white text-lg sm:text-xl font-serif py-3 px-6 rounded w-max">
+            <button class="bg-green-700 hover:bg-green-800 transition-colors text-white text-lg sm:text-xl py-3 px-6 rounded w-max">
                 Tìm hiểu ngay...
             </button>
         </div>

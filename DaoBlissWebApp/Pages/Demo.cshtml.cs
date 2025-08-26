@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DaoBlissWebApp.Pages
 {
-    public class LoginModel : PageModel
+    public class DemoModel : PageModel
     {
         public void OnGet()
         {

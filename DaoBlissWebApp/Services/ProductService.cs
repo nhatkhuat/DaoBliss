@@ -1,9 +1,9 @@
 ﻿
-using Application.Interfaces.Services;
-using Application.Interfaces.Repositories;
+using DaoBlissWebApp.Interfaces.Services;
+using DaoBlissWebApp.Interfaces.Repositories;
 using DaoBlissWebApp.Common.Entities;
 
-namespace Application.Services.ProductService
+namespace DaoBlissWebApp.Services.ProductService
 {
 	public class ProductService : IProductService
 	{

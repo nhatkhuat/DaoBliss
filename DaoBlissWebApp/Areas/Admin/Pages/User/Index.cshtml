@@ -1,0 +1,57 @@
+﻿@page "/admin/members"
+@model DaoBlissWebApp.Areas.Admin.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "User list";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+<p>Total users: @Model.totalUsers</p>
+
+<table class="table">
+    <tr>
+        <th>User Name</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>
+
+                @if (string.IsNullOrEmpty(user.RoleNames))
+                {
+                    <a class="text-dark text-decoration-none" asp-page="./AddRole" asp-route-id="@user.Id">+ Add role</a>
+
+                }
+                else
+                {
+                    <a asp-page="./AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                }
+
+
+            </td>
+            <td>
+                <a class="btn btn-success btn-sm" asp-page="./SetPassword" asp-route-id="@user.Id">Set password</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@{
+    Func<int?, string> generateUrl = (int? _pagenumber) =>
+    {
+        return Url.Page("./Index", new { pageNumber = _pagenumber });
+    };
+    var datapaging = new DaoBlissWebApp.Common.Helpers.PagingModel
+    {
+        currentPage = Model.currentPage,    // trang hiện tại
+        countPages = Model.countPages,   // tổng  số trang
+        generateUrl = generateUrl
+
+    };
+}
+
+<partial name="_PagingCommon" model="@datapaging" />

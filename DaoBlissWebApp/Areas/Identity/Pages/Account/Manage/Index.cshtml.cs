@@ -6,14 +6,16 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Bogus.DataSets;
 using DaoBlissWebApp.Common.Entities;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -57,23 +59,41 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Phone]
+            [Phone(ErrorMessage = "Wrong {0} format")]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
-        }
+			[Required]
+			[StringLength(50)]
+			[Display(Name = "FirstName")]
+			public string FirstName { get; set; }
+			[Required]
+			[StringLength(50)]
+			[Display(Name = "LastName")]
+			public string LastName { get; set; }
+			[Required]
+			[Display(Name = "Gender")]
+			public bool? Gender { get; set; }
+            [Required]
+			[Display(Name = "Birthdate")]
+			public DateOnly? DateOfBirth { get; set; }
+		}
 
-        private async Task LoadAsync(ApplicationUser user)
-        {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+		private async Task LoadAsync(ApplicationUser user)
+		{
+			var userName = await _userManager.GetUserNameAsync(user);
+			var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
-            Username = userName;
+			Username = userName;
 
-            Input = new InputModel
-            {
-                PhoneNumber = phoneNumber
-            };
-        }
+			Input = new InputModel
+			{
+				FirstName = user.FirstName,
+				LastName = user.LastName,
+				DateOfBirth = user.DateOfBirth,
+				Gender = user.Gender,
+				PhoneNumber = phoneNumber
+			};
+		}
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -101,18 +121,29 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
-            }
+            //var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            //if (Input.PhoneNumber != phoneNumber)
+            //{
+            //    var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            //    if (!setPhoneResult.Succeeded)
+            //    {
+            //        StatusMessage = "Unexpected error when trying to set phone number.";
+            //        return RedirectToPage();
+            //    }
+            //}
+            user.PhoneNumber = Input.PhoneNumber;
+            user.FirstName = Input.FirstName;
+            user.LastName = Input.LastName;
+			if (Input.DateOfBirth.HasValue)
+			{
+				user.DateOfBirth = Input.DateOfBirth.Value;
+			}
+			user.Gender = Input.Gender;
 
-            await _signInManager.RefreshSignInAsync(user);
+            await _userManager.UpdateAsync(user);
+
+			await _signInManager.RefreshSignInAsync(user);
+
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }

@@ -7,22 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using DaoBlissWebApp.Common.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using DaoBlissWebApp.Common.Entities;
 
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-
-        public ConfirmEmailModel(UserManager<ApplicationUser> userManager)
+		private readonly SignInManager<ApplicationUser> _signInManager;
+		public ConfirmEmailModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
-        }
+            _signInManager = signInManager;
+		}
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -46,7 +47,16 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
             var result = await _userManager.ConfirmEmailAsync(user, code);
             StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
-            return Page();
+			if (result.Succeeded)
+			{
+				await _signInManager.SignInAsync(user, isPersistent: false);
+				RedirectToPage("/Index");
+			}
+			else
+			{
+				return Content("Xác thực email không thành công. Vui lòng thử lại.");
+			}
+			return Page();
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
+using DaoBlissWebApp.Common.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +19,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
-using DaoBlissWebApp.Common.Entities;
-
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -109,7 +107,7 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                ErrorMessage = "Error loading external login information.";
+                ErrorMessage = "Đăng nhập thất bại: Vui lòng cấp quyền truy cập để sử dụng Google.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
@@ -126,9 +124,13 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
             }
             else
             {
-                // If the user does not have an account, then ask the user to create an account.
+
+				// hệ thống có tk nhưng chưa lket vs gg -> lket tkhoan
+				// chua có tk -> tạo tk, liên kết 
+
+				// If the user does not have an account, then ask the user to create an account.
+				
                 ReturnUrl = returnUrl;
-                ProviderDisplayName = info.ProviderDisplayName;
                 if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
                 {
                     Input = new InputModel
@@ -153,48 +155,111 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+				var registeredUser = await _userManager.FindByEmailAsync(Input.Email);
+				string externalMail = null;
+				ApplicationUser externalEmailUser = null;
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+				if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
+				{
+					externalMail = info.Principal.FindFirstValue(ClaimTypes.Email);
+				}
+				if (externalMail != null)
+				{
+					externalEmailUser = await _userManager.FindByEmailAsync(externalMail);
+				}
+				// Xử lý khi có thông tin về email từ info, đồng thời có user với email đó
+				// trường hợp này sẽ thực hiện liên kết tài khoản ngoài + xác thực email luôn     
+				if ((registeredUser != null) && (externalEmailUser != null))
+				{
+					// xác nhận email luôn nếu chưa xác nhận
+					if (registeredUser.Id == externalEmailUser.Id)
+					{
+						var resultLink = await _userManager.AddLoginAsync(registeredUser, info);
+						if (resultLink.Succeeded)
+						{
+							await _signInManager.SignInAsync(registeredUser, isPersistent: true);
+							return LocalRedirect(returnUrl);
+						}
+					}
+					else
+					{
+						ModelState.AddModelError(string.Empty, "Không liên kết được tài khoản, hãy dùng email khác");
+						return Page();
+					}
+				}
 
-                var result = await _userManager.CreateAsync(user);
-                if (result.Succeeded)
-                {
-                    result = await _userManager.AddLoginAsync(user, info);
-                    if (result.Succeeded)
-                    {
-                        _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+				if (externalEmailUser != null && registeredUser == null)
+				{
+					ModelState.AddModelError(string.Empty, "Không hỗ trợ tạo tài khoản mới có email khác với email từ dịch vụ ngoài");
+					return Page();
+				}
 
-                        var userId = await _userManager.GetUserIdAsync(user);
-                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                        var callbackUrl = Url.Page(
-                            "/Account/ConfirmEmail",
-                            pageHandler: null,
-                            values: new { area = "Identity", userId = userId, code = code },
-                            protocol: Request.Scheme);
+				if (externalEmailUser == null && externalMail == Input.Email)
+				{
+					// chua co tai khoan -> tao tai khoan moi, lien ket, login ngay
+					var newUser = new ApplicationUser()
+					{
+						UserName = externalMail,
+						Email = externalMail
+					};
+					var resultNewUser = await _userManager.CreateAsync(newUser);
+					if (resultNewUser.Succeeded)
+					{
+						await _userManager.AddLoginAsync(newUser, info);
+						var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+						await _userManager.ConfirmEmailAsync(newUser, code);
+						await _signInManager.SignInAsync(newUser, isPersistent: false);
+						return LocalRedirect(returnUrl);
+					}
+					else
+					{
+						ModelState.AddModelError(string.Empty, "Không tạo được tài khoản mới");
+						return Page();
+					}
+				}
 
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+				var user = CreateUser();
 
-                        // If account confirmation is required, we need to show the link if we don't have a real email sender
-                        if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                        {
-                            return RedirectToPage("./RegisterConfirmation", new { Email = Input.Email });
-                        }
+				await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+				await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
-                        await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);
-                        return LocalRedirect(returnUrl);
-                    }
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
+				var result = await _userManager.CreateAsync(user);
+				if (result.Succeeded)
+				{
+					result = await _userManager.AddLoginAsync(user, info);
+					if (result.Succeeded)
+					{
+						_logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
-            ProviderDisplayName = info.ProviderDisplayName;
+						var userId = await _userManager.GetUserIdAsync(user);
+						var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+						code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+						var callbackUrl = Url.Page(
+							"/Account/ConfirmEmail",
+							pageHandler: null,
+							values: new { area = "Identity", userId = userId, code = code },
+							protocol: Request.Scheme);
+
+						await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+							$"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+						// If account confirmation is required, we need to show the link if we don't have a real email sender
+						if (_userManager.Options.SignIn.RequireConfirmedAccount)
+						{
+							return RedirectToPage("./RegisterConfirmation", new { Email = Input.Email });
+						}
+
+						await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);
+						return LocalRedirect(returnUrl);
+					}
+				}
+				foreach (var error in result.Errors)
+				{
+					ModelState.AddModelError(string.Empty, error.Description);
+				}
+			}
+
+			ProviderDisplayName = info.ProviderDisplayName;
             ReturnUrl = returnUrl;
             return Page();
         }

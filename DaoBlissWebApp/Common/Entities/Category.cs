@@ -5,7 +5,7 @@ namespace DaoBlissWebApp.Common.Entities
 	public class Category
 	{
 		[Key]
-		public int ProductCategoryId { get; set; }
+		public int CategoryId { get; set; }
 
 		[Required, StringLength(255)]
 		public string ProductCategoryName { get; set; }
