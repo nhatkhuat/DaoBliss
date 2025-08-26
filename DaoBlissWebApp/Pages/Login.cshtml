@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>
-        Đăng Nhập DaoBliss
+        Login
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
@@ -21,6 +21,7 @@
         .font-playfair {
             font-family: 'Playfair Display', serif;
         }
+
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -83,13 +84,18 @@ height: 119.6px; transform: translate(-52px, 0px); position: relative; left: 47p
                     Đăng ký ngay!
                 </a>
             </p>
-            <p class="mt-2 text-[#1b3a2a] text-center text-base max-w-sm">
+            <div class="mt-2 text-[#1b3a2a] text-center text-base max-w-sm">
                 Hoặc đăng ký với
-                <img alt="Google logo with blue, red, yellow and green colors" class="inline-block ml-1 align-middle" height="24" src="https://storage.googleapis.com/a1aa/image/fd576044-8e47-4f3c-80e4-4561bcedec9d.jpg" width="80" />
-            </p>
-            <div class="absolute bottom-0 left-0 w-full h-4 bg-[#a9742f]">
+                <button type="button" class="earth-social" style="pointer-events: auto; opacity: 1;">
+                    <div class="social-earth"></div>
+                    <img alt="Google logo with blue, red, yellow and green colors" class="inline-block ml-1 align-middle" height="24" src="https://storage.googleapis.com/a1aa/image/fd576044-8e47-4f3c-80e4-4561bcedec9d.jpg" width="80" />
+
+                    <span>Google</span>
+                </button>     
             </div>
+            
         </div>
     </div>
 </body>
+
 </html>

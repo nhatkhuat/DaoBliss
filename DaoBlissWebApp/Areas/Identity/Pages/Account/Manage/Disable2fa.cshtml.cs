@@ -4,7 +4,8 @@
 
 using System;
 using System.Threading.Tasks;
-using Domain.Entities;
+using DaoBlissWebApp.Common.Entities;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

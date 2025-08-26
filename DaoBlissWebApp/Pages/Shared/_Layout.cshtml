@@ -105,13 +105,18 @@
 
                 <!-- Nút giỏ hàng và Người dùng -->
                 <div class="flex items-center space-x-4">
-                    <button aria-label="Cart" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl"  onclick="location.href='/cart'" >
+                    <button aria-label="Cart" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl" onclick="location.href='/cart'">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
+                    <div class="dropdown cart show">
+                        <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="fas fa-cart-plus"></i>
+                        </a>
+                    </div>
                     <button aria-label="User-Icon" class="bg-[#a06f1a] text-[#f9f5f0] rounded-full px-2 py-1 text-sm font-semibold flex gap-2 items-center justify-start">
                         <img alt="Hình ảnh con mèo" class="w-6 h-6 object-cover rounded-full self-center" src="https://storage.googleapis.com/a1aa/image/5fb5e5b5-0bc8-4c28-acd5-381c4abfd4f2.jpg" />
                         <a asp-page="Login" style="">
-                        <span>User</span>
+                            <span>User</span>
                         </a>
                     </button>
                 </div>

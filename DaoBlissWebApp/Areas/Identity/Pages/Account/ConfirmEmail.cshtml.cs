@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Domain.Entities;
+using DaoBlissWebApp.Common.Entities;
 
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 {

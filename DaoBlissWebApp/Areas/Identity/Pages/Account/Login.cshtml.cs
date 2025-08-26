@@ -14,12 +14,11 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Domain.Entities;
+using DaoBlissWebApp.Common.Entities;
 
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 {
-    public class LoginModel : PageModel
-    {
+    public class LoginModel : PageModel    {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
