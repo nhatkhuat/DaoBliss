@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DaoBlissWebApp.styles.css" asp-append-version="true" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#57b5e7', secondary: '#8dd3c7' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @*<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">*@
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">*@
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;family=Roboto&amp;display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <style>
         a {
             color: white !important;
@@ -21,15 +31,15 @@
         }
 
         body {
-            font-family: "Roboto", sans-serif;
+            /*            font-family: "Roboto", sans-serif;*/
             background-color: #f9f8f0;
             color: #1f3a2f;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: "Playfair Display", serif;
+            font-family: "Inter", sans-serif;
         }
-        /* Custom scrollbar for slider arrows */
+        /*/* Custom scrollbar for slider arrows */
         .slick-arrow {
             background: transparent !important;
             color: white !important;
@@ -72,22 +82,22 @@
                 <div class="flex flex-col" href="HomePage.cshtml">
                     <!-- Hàng ngang gồm logo và DaoBliss -->
                     <a href="/HomePage">
-                    <div class="flex items-baseline space-x-2">
-                        <img src="/img/DaoBlissLogo.png"
-                             alt="Logo"
-                             class="h-10 w-auto align-baseline" />
+                        <div class="flex items-baseline space-x-2">
+                            <img src="/img/DaoBlissLogo.png"
+                                 alt="Logo"
+                                 class="h-10 w-auto align-baseline" />
 
-                        <span class="text-white text-[36px] font-playfair leading-none align-baseline"
-                              style="font-family: 'Garlic Salt Regular'">
-                            DaoBliss
-                        </span>
-                    </div>
+                            <span class="text-white text-[36px] font-playfair leading-none align-baseline"
+                                  style="font-family: 'Garlic Salt Regular'">
+                                DaoBliss
+                            </span>
+                        </div>
 
 
-                    <!-- Slogan phía dưới -->
-                    <p class="text-white text-[15.5px] font-serif leading-tight mt-0" style="font-family: StenciliqoExtruded4F ☞">
-                        Gìn giữ tinh túy núi rừng
-                    </p>
+                        <!-- Slogan phía dưới -->
+                        <p class="text-white text-[15.5px] font-serif leading-tight mt-0" style="font-family: StenciliqoExtruded4F ☞">
+                            Gìn giữ tinh túy núi rừng
+                        </p>
                     </a>
                 </div>
                 <!-- Thanh tìm kiếm -->
@@ -108,11 +118,6 @@
                     <button aria-label="Cart" class="text-[#f9f5f0] hover:text-[#ddb25a] text-xl" onclick="location.href='/cart'">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
-                    <div class="dropdown cart show">
-                        <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <i class="fas fa-cart-plus"></i>
-                        </a>
-                    </div>
                     <button aria-label="User-Icon" class="bg-[#a06f1a] text-[#f9f5f0] rounded-full px-2 py-1 text-sm font-semibold flex gap-2 items-center justify-start">
                         <img alt="Hình ảnh con mèo" class="w-6 h-6 object-cover rounded-full self-center" src="https://storage.googleapis.com/a1aa/image/5fb5e5b5-0bc8-4c28-acd5-381c4abfd4f2.jpg" />
                         <a asp-page="Login" style="">
@@ -246,7 +251,41 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
 
+    <!-- Linking for file upload functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    @Html.AntiForgeryToken()
+    <script>
+    (function () {
+    // Load CSS
+    let link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "@Url.Content("~/chatbot/chatbot.css")";
+    link.onerror = () => console.error("Failed to load chatbot.css");
+    document.head.appendChild(link);
+
+    // Load HTML
+    fetch("@Url.Content("~/chatbot/chatbot.html")") // Đường dẫn đầy đủ
+        .then(res => {
+            if (!res.ok) throw new Error("Failed to load chatbot.html");
+            return res.text();
+        })
+        .then(html => {
+            let container = document.createElement("div");
+            container.innerHTML = html;
+            document.body.appendChild(container);
+
+            // Load JS
+            let script = document.createElement("script");
+            script.src = "@Url.Content("~/chatbot/chatbot.js")"; // Đường dẫn đầy đủ
+            script.onerror = () => console.error("Failed to load chatbot.js");
+            document.body.appendChild(script);
+        })
+        .catch(err => console.error(err));
+        })();
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

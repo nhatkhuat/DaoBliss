@@ -18,6 +18,7 @@ using DaoBlissWebApp.Common.Entities;
 
 namespace DaoBlissWebApp.Areas.Identity.Pages.Account
 {
+<<<<<<< Updated upstream
     public class LoginModel : PageModel    {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
@@ -27,33 +28,48 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
         }
+=======
+	public class LoginModel : PageModel
+	{
+		private readonly SignInManager<ApplicationUser> _signInManager;
+		private readonly UserManager<ApplicationUser> _userManager;
+		private readonly ILogger<LoginModel> _logger;
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        [BindProperty]
-        public InputModel Input { get; set; }
+		public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
+		{
+			_signInManager = signInManager;
+			_logger = logger;
+			_userManager = userManager;
+		}
+>>>>>>> Stashed changes
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+		/// <summary>
+		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+		///     directly from your code. This API may change or be removed in future releases.
+		/// </summary>
+		[BindProperty]
+		public InputModel Input { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public string ReturnUrl { get; set; }
+		/// <summary>
+		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+		///     directly from your code. This API may change or be removed in future releases.
+		/// </summary>
+		public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        [TempData]
-        public string ErrorMessage { get; set; }
+		/// <summary>
+		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+		///     directly from your code. This API may change or be removed in future releases.
+		/// </summary>
+		public string ReturnUrl { get; set; }
 
+		/// <summary>
+		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+		///     directly from your code. This API may change or be removed in future releases.
+		/// </summary>
+		[TempData]
+		public string ErrorMessage { get; set; }
+
+<<<<<<< Updated upstream
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -75,38 +91,63 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
+=======
+		/// <summary>
+		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+		///     directly from your code. This API may change or be removed in future releases.
+		/// </summary>
+		public class InputModel
+		{
+			/// <summary>
+			///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+			///     directly from your code. This API may change or be removed in future releases.
+			/// </summary>
+			[Required(ErrorMessage = "Phải nhập {0}")]
+			//[EmailAddress]
+			[Display(Name = "Phải nhập email hoặc tên tài khoản")]
+			public string UserNameOrEmail { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }
-        }
+			/// <summary>
+			///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+			///     directly from your code. This API may change or be removed in future releases.
+			/// </summary>
+			[Required]
+			[DataType(DataType.Password)]
+			public string Password { get; set; }
+>>>>>>> Stashed changes
 
-        public async Task OnGetAsync(string returnUrl = null)
-        {
-            if (!string.IsNullOrEmpty(ErrorMessage))
-            {
-                ModelState.AddModelError(string.Empty, ErrorMessage);
-            }
+			/// <summary>
+			///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+			///     directly from your code. This API may change or be removed in future releases.
+			/// </summary>
+			[Display(Name = "Remember me?")]
+			public bool RememberMe { get; set; }
+		}
 
-            returnUrl ??= Url.Content("~/");
+		public async Task OnGetAsync(string returnUrl = null)
+		{
+			if (!string.IsNullOrEmpty(ErrorMessage))
+			{
+				ModelState.AddModelError(string.Empty, ErrorMessage);
+			}
 
-            // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+			returnUrl ??= Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+			// Clear the existing external cookie to ensure a clean login process
+			await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            ReturnUrl = returnUrl;
-        }
+			ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
-        {
-            returnUrl ??= Url.Content("~/");
+			ReturnUrl = returnUrl;
+		}
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+		public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+		{
+			returnUrl ??= Url.Content("~/");
 
+			ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+<<<<<<< Updated upstream
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -132,9 +173,52 @@ namespace DaoBlissWebApp.Areas.Identity.Pages.Account
                     return Page();
                 }
             }
+=======
+			if (ModelState.IsValid)
+			{
+				// This doesn't count login failures towards account lockout
+				// To enable password failures to trigger account lockout, set lockoutOnFailure: true
 
-            // If we got this far, something failed, redisplay form
-            return Page();
-        }
-    }
+				var user = await _userManager.FindByNameAsync(Input.UserNameOrEmail) ?? await _userManager.FindByEmailAsync(Input.UserNameOrEmail);
+
+				if (user == null)
+				{
+					ModelState.AddModelError(string.Empty, "Tài khoản không tồn tại.");
+					return Page();
+				}
+
+				if (!user.EmailConfirmed)
+				{
+					ModelState.AddModelError(string.Empty, "Tài khoản chưa được xác nhận email. Vui lòng kiểm tra email để xác nhận.");
+					return Page();
+				}
+
+				var result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+
+				if (result.Succeeded)
+				{
+					// ng dung nhap username
+					return LocalRedirect(returnUrl);
+				}
+				if (result.RequiresTwoFactor)
+				{
+					return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+				}
+				if (result.IsLockedOut)
+				{
+					_logger.LogWarning("Tài khoản đã bị khóa.");
+					return RedirectToPage("./Lockout");
+				}
+				else
+				{
+					ModelState.AddModelError(string.Empty, "Thất bại, sai mật khẩu");
+					return Page();
+				}
+			}
+>>>>>>> Stashed changes
+
+			// If we got this far, something failed, redisplay form
+			return Page();
+		}
+	}
 }
