@@ -15,7 +15,7 @@ namespace DaoBlissWebApp.Common.Entities
 		public int ProductVariantId { get; set; }
 
 		[Required, MaxLength(200)]
-		public string ProductName { get; set; }
+		public string Name { get; set; }
 
 		[Required, MaxLength(50)]
 		public string Size { get; set; }

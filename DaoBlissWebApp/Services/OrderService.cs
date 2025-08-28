@@ -1,13 +1,13 @@
 ﻿
 
-using Application.Interfaces.Services;
-using Application.Interfaces.Repositories;
+using DaoBlissWebApp.Interfaces.Services;
+using DaoBlissWebApp.Interfaces.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Text;
 using DaoBlissWebApp.Common.Entities;
 
-namespace Application.Services.OrderServices
+namespace DaoBlissWebApp.Services.OrderServices
 {
 	public class OrderService : IOrderService
 	{
@@ -108,7 +108,7 @@ namespace Application.Services.OrderServices
 			//{
 			//	sb.Append($@"
 			//             <tr>
-			//                 <td>{item.ProductName}</td>
+			//                 <td>{item.Name}</td>
 			//                 <td>{item.UnitPrice.ToString("C0", culture)}</td>
 			//                 <td>{item.Quantity}</td>
 			//                 <td>{item.TotalPrice.ToString("C0", culture)}</td>

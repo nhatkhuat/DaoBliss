@@ -73,7 +73,7 @@ namespace DaoBlissWebApp.Pages
 
 
 				var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-				var response = await client.PostAsync($"v1beta/models/gemini-2.5-flash-lite:generateContent?key={_apiKey}", content);
+				var response = await client.PostAsync($"v1beta/models/gemini-1.5-flash:generateContent?key={_apiKey}", content);
 
 				if (!response.IsSuccessStatusCode)
 				{
@@ -101,6 +101,5 @@ namespace DaoBlissWebApp.Pages
 				return new JsonResult(new { error = new { message = "Unexpected error occurred." } }) { StatusCode = 500 };
 			}
 		}
-		
 	}
 }

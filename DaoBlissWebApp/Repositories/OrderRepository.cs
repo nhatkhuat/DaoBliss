@@ -1,11 +1,11 @@
 ﻿
-using Application.Interfaces.Repositories;
+using DaoBlissWebApp.Interfaces.Repositories;
 using DaoBlissWebApp.Common.Entities;
 
-using Infrastructure.Data;
+using DaoBlissWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Repositories
+namespace DaoBlissWebApp.Repositories
 {
 	public class OrderRepository : IOrderRepository
 	{

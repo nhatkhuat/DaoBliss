@@ -1,11 +1,11 @@
 ﻿
-using Application.Interfaces.Repositories;
+using DaoBlissWebApp.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using Infrastructure.Data;
+using DaoBlissWebApp.Data;
 using DaoBlissWebApp.Common.Entities;
 
-namespace Infrastructure.Repositories
+namespace DaoBlissWebApp.Repositories
 {
 	public class ProductRepository : IProductRepository
 	{

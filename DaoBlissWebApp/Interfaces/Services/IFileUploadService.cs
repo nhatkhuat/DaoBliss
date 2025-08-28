@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Interfaces.Services
+namespace DaoBlissWebApp.Interfaces.Services
 {
 	public class IFileUploadService
 	{

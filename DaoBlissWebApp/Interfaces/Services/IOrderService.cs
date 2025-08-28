@@ -1,7 +1,7 @@
 ﻿using DaoBlissWebApp.Common.Entities;
 
 
-namespace Application.Interfaces.Services
+namespace DaoBlissWebApp.Interfaces.Services
 {
 	public interface IOrderService
 	{

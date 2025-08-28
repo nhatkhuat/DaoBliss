@@ -1,7 +1,7 @@
 ﻿using DaoBlissWebApp.Common.Entities;
 
 
-namespace Application.Interfaces.Repositories
+namespace DaoBlissWebApp.Interfaces.Repositories
 {
 	public interface ICartRepository
 	{

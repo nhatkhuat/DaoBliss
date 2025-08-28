@@ -26,4 +26,7 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
 		<PackageReference Include="MimeKit" Version="4.13.0" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Areas\Admin\Pages\Dashboard\" />
+	</ItemGroup>
 </Project>

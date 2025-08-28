@@ -1,12 +1,12 @@
 ﻿
-using Application.Interfaces;
+using DaoBlissWebApp.Interfaces;
 using DaoBlissWebApp.Common.Entities;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 
-namespace Infrastructure.Data
+namespace DaoBlissWebApp.Data
 {
 	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{

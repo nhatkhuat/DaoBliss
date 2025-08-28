@@ -1,32 +1,7 @@
-<<<<<<< Updated upstream
-﻿using Application;
-using Application.Interfaces;
-using Application.Interfaces.Repositories;
-using Application.Interfaces.Services;
-using Application.Services;
-using Application.Services.CartService;
-using Application.Services.OrderServices;
-using Application.Services.ProductService;
-using DaoBlissWebApp.Common.Entities;
-using Infrastructure.Data;
-using Infrastructure.Repositories;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.EntityFrameworkCore;
-using System.Configuration;
-
-namespace DaoBlissWebApp
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddRazorPages();
-=======
 ﻿using CloudinaryDotNet;
 using DaoBlissWebApp.Common.Entities;
 using DaoBlissWebApp.Data;
+using DaoBlissWebApp.Interfaces;
 using DaoBlissWebApp.Interfaces.Repositories;
 using DaoBlissWebApp.Interfaces.Services;
 using DaoBlissWebApp.Repositories;
@@ -37,6 +12,9 @@ using DaoBlissWebApp.Services.ProductService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using System.Configuration;
+using System.Net.Http.Headers;
 
 namespace DaoBlissWebApp
 {
@@ -46,7 +24,6 @@ namespace DaoBlissWebApp
 		{
 			var builder = WebApplication.CreateBuilder(args);
 			builder.Services.AddRazorPages();
->>>>>>> Stashed changes
 			// Cấu hình DbContext của EF Core
 			builder.Services.AddDbContext<ApplicationDbContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
@@ -62,13 +39,16 @@ namespace DaoBlissWebApp
 			builder.Services.AddScoped<ICartService, CartService>();
 			builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 			builder.Services.AddScoped<IOrderService, OrderService>();
+			builder.Services.Configure<IdentityOptions>(options =>
+			{
+				// Thiet lap Password
+				options.Password.RequireDigit = false;
+				options.Password.RequireLowercase = false;
+				options.Password.RequireNonAlphanumeric = false; // Không bat co tu đac biet
+				options.Password.RequireUppercase = false; // Không bat buoc chu in
+				options.Password.RequiredLength = 3;
+				options.Password.RequiredUniqueChars = 1; // So ky tu rieng biet
 
-<<<<<<< Updated upstream
-			var mailsettings = builder.Configuration.GetSection("MailSettings");
-			builder.Services.Configure<MailSettings>(mailsettings);
-			builder.Services.AddTransient<IEmailSender, SendMailService>();
-			var app = builder.Build();
-=======
 				// Cau hinh Lockout - khóa user
 				options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Khóa 5 phút
 				options.Lockout.MaxFailedAccessAttempts = 5; // That bai n lan thi khóa
@@ -107,7 +87,7 @@ namespace DaoBlissWebApp
 					context.HandleResponse();
 					return Task.CompletedTask;
 				};
-			})
+			})//.AddFacebook()
 			;
 
 			builder.Services.AddHttpClient("Gemini", client =>
@@ -131,29 +111,17 @@ namespace DaoBlissWebApp
 				app.UseExceptionHandler("/Error");
 				app.UseHsts();
 			}
->>>>>>> Stashed changes
 
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
-            //hi
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 
-            app.UseRouting();
+			app.UseRouting();
 
-            app.UseAuthentication(); 
-            app.UseAuthorization();
+			app.UseAuthentication();
+			app.UseAuthorization();
 
-            app.MapRazorPages();
+			app.MapRazorPages();
 
-<<<<<<< Updated upstream
-            app.Run();
-        }
-    }
-=======
 			await app.RunAsync();
 		}
 		static async Task CreateRolesAndAdminAsync(WebApplication app)
@@ -197,5 +165,4 @@ namespace DaoBlissWebApp
 			}
 		}
 	}
->>>>>>> Stashed changes
 }
