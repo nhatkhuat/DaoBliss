@@ -4,7 +4,51 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng Ký Tài Khoản</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <form class="w-full max-w-md">
+            <h2 class="text-center text-[#4a5a0e] font-semibold text-lg mb-6"
+                style="font-family: 'Inter', sans-serif;">
+                Đăng Ký Tài khoản
+            </h2>
+            <input type="text"
+                   placeholder="Họ Tên (*)"
+                   class="w-full mb-4 px-4 py-3 border border-[#e6e6d9] rounded-md text-[#4a4a4a] text-sm placeholder:text-[#4a4a4a] focus:outline-none focus:ring-1 focus:ring-[#a3b01a]" />
+            <input type="tel"
+                   placeholder="Số điện thoại (*)"
+                   class="w-full mb-4 px-4 py-3 border border-[#e6e6d9] rounded-md text-[#4a4a4a] text-sm placeholder:text-[#4a4a4a] focus:outline-none focus:ring-1 focus:ring-[#a3b01a]" />
+            <input type="email"
+                   placeholder="Email (*)"
+                   class="w-full mb-4 px-4 py-3 border border-[#e6e6d9] rounded-md text-[#4a4a4a] text-sm placeholder:text-[#4a4a4a] focus:outline-none focus:ring-1 focus:ring-[#a3b01a]" />
+            <input type="password"
+                   placeholder="Nhập mật khẩu (*)"
+                   class="w-full mb-4 px-4 py-3 border border-[#e6e6d9] rounded-md text-[#4a4a4a] text-sm placeholder:text-[#4a4a4a] focus:outline-none focus:ring-1 focus:ring-[#a3b01a]" />
+            <input type="password"
+                   placeholder="Nhập lại mật khẩu (*)"
+                   class="w-full mb-6 px-4 py-3 border border-[#e6e6d9] rounded-md text-[#4a4a4a] text-sm placeholder:text-[#4a4a4a] focus:outline-none focus:ring-1 focus:ring-[#a3b01a]" />
+            <div class="flex items-center justify-between text-[#4a5a0e] text-sm font-medium">
+                <a href="#" class="hover:underline">Về trang đăng nhập</a>
+                <button type="submit"
+                        class="bg-[#4a5a0e] text-white font-semibold px-8 py-3 rounded-md hover:bg-[#3b4709] transition-colors">
+                    Đăng ký
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+@* <h1>@ViewData["Title"]</h1>
 
 <div class="row">
     <div class="col-md-4">
@@ -68,4 +112,4 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-}
+} *@

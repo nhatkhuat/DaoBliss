@@ -4,7 +4,358 @@
     ViewData["Title"] = "Giỏ hàng";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-<html lang="vi">
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>
+        Checkout Page with Slider
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        /* Custom scrollbar for horizontal scroll */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-[13px] text-[#333] leading-relaxed">
+    <div class="max-w-[1024px] mx-auto p-4">
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Left side form -->
+            <form class="flex-1 space-y-6" novalidate="">
+                <div>
+                    <h3 class="font-semibold text-[14px] mb-3">
+                        Thông tin nhận hàng
+                    </h3>
+                    <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
+                        <input class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full sm:w-1/2" placeholder="Tuấn Anh Nguyễn" type="text" value="Tuấn Anh Nguyễn" />
+                        <input class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full sm:w-1/2" placeholder="0332029341" type="text" value="0332029341" />
+                    </div>
+                    <div class="mt-3">
+                        <input class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full" placeholder="nguyentuananh194196@gmail.com" type="email" value="nguyentuananh194196@gmail.com" />
+                    </div>
+                    <div class="mt-3">
+                        <input class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full" placeholder="Địa chỉ (Ví dụ: 123 Hoàng Cầu)" type="text" />
+                    </div>
+                    <div class="mt-3 flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0">
+                        <select aria-label="Chọn Tỉnh/thành phố" class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full sm:w-1/3">
+                            <option>
+                                Chọn Tỉnh/thành phố
+                            </option>
+                        </select>
+                        <select aria-label="Chọn Quận/huyện" class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full sm:w-1/3">
+                            <option>
+                                Chọn Quận/huyện
+                            </option>
+                        </select>
+                        <select aria-label="Chọn Phường/xã" class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full sm:w-1/3">
+                            <option>
+                                Chọn Phường/xã
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <textarea class="border border-[#d6d6b8] rounded px-3 py-2 text-[13px] w-full resize-none" placeholder="Ghi chú thêm (Ví dụ: Giao giờ hành chính)" rows="3"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-[14px] mb-3">
+                        Chọn Hình thức thanh toán
+                    </h3>
+                    <div class="border border-[#d6d6b8] rounded">
+                        <label class="flex items-center gap-3 border-b border-[#d6d6b8] px-4 py-3 cursor-pointer" for="cod">
+                            <input checked="" class="w-4 h-4 text-orange-500 border border-orange-500" id="cod" name="payment" type="radio" />
+                            <div class="flex items-center gap-2 text-[13px] text-[#a56a00]">
+                                <i class="fas fa-box-open text-lg">
+                                </i>
+                                <span>
+                                    Thanh toán khi nhận hàng (COD)
+                                </span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 border-b border-[#d6d6b8] px-4 py-3 cursor-pointer" for="vnpay">
+                            <input class="w-4 h-4 text-orange-500 border border-orange-500" id="vnpay" name="payment" type="radio" />
+                            <div class="flex flex-wrap items-center gap-2 text-[11px] text-[#666] max-w-[400px]">
+                                <span class="font-bold text-red-600">
+                                    VN
+                                </span>
+                                <span class="font-bold text-blue-600">
+                                    PAY
+                                </span>
+                                <span>
+                                    Thẻ ATM (App bank)/ Thẻ tín dụng (Credit Card)/ Thẻ ghi nợ (Debit Card)
+                                </span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 border-b border-[#d6d6b8] px-4 py-3 cursor-pointer" for="zalopay">
+                            <input class="w-4 h-4 text-orange-500 border border-orange-500" id="zalopay" name="payment" type="radio" />
+                            <div class="flex items-center gap-2 text-[11px] text-[#666]">
+                                <img alt="ZaloPay logo placeholder, blue and green colors" class="w-5 h-5 object-contain" height="20" src="https://storage.googleapis.com/a1aa/image/15fa3ade-91d7-4e1a-66c6-03e77a8c0594.jpg" width="20" />
+                                <span>
+                                    Ví điện tử ZaloPay
+                                </span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 px-4 py-3 cursor-pointer" for="momo">
+                            <input class="w-4 h-4 text-orange-500 border border-orange-500" id="momo" name="payment" type="radio" />
+                            <div class="flex items-center gap-2 text-[11px] text-[#666]">
+                                <img alt="Ví MOMO logo placeholder, pink background with white text" class="w-7 h-7 object-contain" height="30" src="https://storage.googleapis.com/a1aa/image/1a99ff5e-9718-480b-e09d-d485823666b9.jpg" width="30" />
+                                <span>
+                                    Ví MOMO
+                                </span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="mt-3 flex items-start gap-2 text-[11px] text-[#666] max-w-[600px]">
+                        <input checked="" class="w-4 h-4 mt-1 text-orange-500 border border-orange-500" id="agree" type="checkbox" />
+                        <label class="leading-tight" for="agree">
+                            Bằng việc nhấn vào nút thanh toán tức bạn đã đồng ý với các chính sách mua hàng,
+                            thanh toán và chính sách bảo mật thông tin
+                        </label>
+                    </div>
+                    <button class="mt-4 w-full bg-[#f28c1f] text-white font-semibold text-[14px] py-3 rounded" type="submit">
+                        Xác nhận đặt hàng
+                    </button>
+                </div>
+            </form>
+            <!-- Right side cart and promotions -->
+            <div class="w-full lg:w-[360px] space-y-6">
+                <!-- Cart box -->
+                <div class="border border-[#d6d6b8] rounded p-4 text-[12px] text-[#333]">
+                    <h4 class="font-semibold text-[14px] mb-3">
+                        Giỏ hàng của bạn
+                    </h4>
+                    <p class="flex items-center gap-2 mb-3 text-[11px] text-[#666]">
+                        <i class="fas fa-info-circle text-[#666]">
+                        </i>
+                        <span>
+                            Có
+                            <span class="font-semibold text-[#1a9aef]">
+                                18
+                            </span>
+                            người đang thêm cùng sản phẩm giống bạn vào giỏ hàng. Mua ngay trước khi các sản phẩm này hết hàng nhé!
+                        </span>
+                    </p>
+                    <p class="mb-3 text-[10px] italic text-[#666] leading-snug">
+                        <span class="block font-bold">
+                            Nếu bạn muốn mua hàng với số lượng lớn, xin vui lòng liên hệ Hotline:
+                        </span>
+                        <span class="block font-bold">
+                            1800646890
+                        </span>
+                        <span class="block font-bold">
+                            hoặc Zalo:
+                            <span class="text-black">
+                                0968622511
+                            </span>
+                            . Có mềm chân thành cảm ơn bạn!
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <img alt="Sữa Chống Nắng Rau Má Kiềm Dầu SPF 50+ PA++++ product image, green tube sunscreen" class="w-[50px] h-[50px] object-contain border border-[#d6d6b8] rounded" height="50" src="https://storage.googleapis.com/a1aa/image/5dfcd093-2c04-4137-f9db-61c082dc1b9d.jpg" width="50" />
+                        <div class="flex-1">
+                            <p class="text-[13px] font-semibold text-[#333] leading-tight">
+                                Sữa Chống Nắng Rau Má Kiềm Dầu SPF 50+ PA++++
+                            </p>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button class="w-6 h-6 border border-[#d6d6b8] rounded text-[14px] font-semibold text-[#333] flex items-center justify-center select-none" type="button">
+                                    -
+                                </button>
+                                <span class="text-[13px] font-semibold">
+                                    2
+                                </span>
+                                <button class="w-6 h-6 border border-[#d6d6b8] rounded text-[14px] font-semibold text-[#333] flex items-center justify-center select-none" type="button">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-[14px] font-semibold text-[#f28c1f]">
+                            790.000đ
+                        </div>
+                        <button aria-label="Xóa sản phẩm" class="text-[12px] text-[#666] hover:text-[#f28c1f]" type="button">
+                            XÓA
+                        </button>
+                    </div>
+                </div>
+                <!-- Promotion box -->
+                <div class="border border-[#d6d6b8] rounded p-4 text-[12px] text-[#333]">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="bg-[#f24822] text-white text-[11px] font-semibold px-3 py-1 rounded select-none">
+                            Hot Deal
+                        </span>
+                        <h4 class="font-semibold text-[14px]">
+                            Mua kèm sản phẩm với giá ưu đãi
+                        </h4>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <img alt="Sữa rửa mặt tạo bọt To Tâm product image, green bottle with pump" class="w-[50px] h-[50px] object-contain border border-[#d6d6b8] rounded" height="50" src="https://storage.googleapis.com/a1aa/image/6cf6d313-622d-45aa-b427-fa5d01a18d4e.jpg" width="50" />
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-[#f24822] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded select-none">
+                                    -1%
+                                </span>
+                                <p class="font-semibold text-[13px] leading-tight">
+                                    Sữa rửa mặt tạo bọt To Tâm
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-2 text-[12px] text-[#999]">
+                                <del>
+                                    96.000đ
+                                </del>
+                                <span class="text-[#f24822] font-semibold">
+                                    95.000đ
+                                </span>
+                                <button class="text-[#f24822] border border-[#f24822] rounded px-2 py-[2px] text-[11px] font-semibold hover:bg-[#f24822] hover:text-white transition" type="button">
+                                    Mua kèm
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <button aria-label="Previous" class="text-[#999] hover:text-[#f28c1f] text-lg select-none" id="promo-prev" type="button">
+                            <i class="fas fa-chevron-left">
+                            </i>
+                        </button>
+                        <button aria-label="Next" class="text-[#999] hover:text-[#f28c1f] text-lg select-none" id="promo-next" type="button">
+                            <i class="fas fa-chevron-right">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Voucher program slider -->
+                <div class="text-[11px] text-[#3a5a1a] font-semibold flex items-center gap-1 select-none">
+                    <span class="text-[10px] font-normal text-[#666]">
+                        CHƯƠNG TRÌNH KHUYẾN MẠI
+                    </span>
+                    <span class="text-[10px] font-normal text-[#666] italic">
+                        *Chọn 01 voucher
+                    </span>
+                    <i class="fas fa-percent">
+                    </i>
+                </div>
+                <div class="border border-[#3a5a1a] rounded text-[11px] text-[#3a5a1a] font-semibold relative">
+                    <button aria-label="Previous voucher" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-[#3a5a1a] rounded-full w-6 h-6 flex items-center justify-center text-[#3a5a1a] hover:bg-[#3a5a1a] hover:text-white transition select-none" id="voucher-prev" type="button">
+                        <i class="fas fa-chevron-left text-[10px]">
+                        </i>
+                    </button>
+                    <div class="flex overflow-hidden scroll-smooth" id="voucher-slider">
+                        <div class="min-w-[120px] border-r border-[#3a5a1a] p-2 shrink-0">
+                            <div class="font-bold mb-1">
+                                BONGTAYTRANG
+                            </div>
+                            <ul class="list-disc pl-4 space-y-0.5 font-normal text-[10px] leading-tight">
+                                <li>
+                                    Đơn Hàng Dưới 400K Chỉ
+                                </li>
+                                <li>
+                                    Mua Sản Phẩm Sớm 17:00
+                                </li>
+                                <li>
+                                    Tặng 01 Bông Tay Trang
+                                </li>
+                                <li>
+                                    Có Mềm
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="min-w-[120px] border-r border-[#3a5a1a] p-2 shrink-0">
+                            <div class="font-bold mb-1">
+                                MUA1TANG1
+                            </div>
+                            <ul class="list-disc pl-4 space-y-0.5 font-normal text-[10px] leading-tight">
+                                <li>
+                                    Mua Dầu Gội/ Dầu Xả/
+                                </li>
+                                <li>
+                                    Serum Tóc Bất Kỳ tặng
+                                </li>
+                                <li>
+                                    Serum Tóc Mini Giá 120k
+                                </li>
+                            </ul>
+                        </div>                      
+                    </div>
+                    <button aria-label="Next voucher" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-[#3a5a1a] rounded-full w-6 h-6 flex items-center justify-center text-[#3a5a1a] hover:bg-[#3a5a1a] hover:text-white transition select-none" id="voucher-next" type="button">
+                        <i class="fas fa-chevron-right text-[10px]">
+                        </i>
+                    </button>
+                </div>
+                <!-- Discount code input -->
+                <div class="flex gap-2 mt-2">
+                    <input class="flex-1 border border-[#d6d6b8] rounded px-3 py-2 text-[13px]" placeholder="Mã giảm giá" type="text" />
+                    <button class="bg-[#f28c1f] text-white font-semibold text-[13px] px-4 rounded" type="button">
+                        Áp dụng
+                    </button>
+                </div>
+                <!-- Order summary -->
+                <div class="border border-[#d6d6b8] rounded p-4 text-[12px] text-[#333]">
+                    <div class="flex justify-between mb-1">
+                        <span>
+                            Tổng giá trị đơn:
+                        </span>
+                        <span class="font-semibold">
+                            790.000đ
+                        </span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span>
+                            Phí giao hàng:
+                        </span>
+                        <span class="font-semibold">
+                            25.000đ
+                        </span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span>
+                            Giảm giá:
+                        </span>
+                        <span>
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-[#d6d6b8] pt-2 mt-2">
+                        <span class="font-bold text-[14px] text-[#f28c1f]">
+                            Tổng thanh toán:
+                        </span>
+                        <div class="text-[14px] font-bold text-[#f28c1f] flex items-center gap-2">
+                            815.000đ
+                            <span class="text-[11px] font-normal text-[#666]">
+                                Tiết kiệm
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+           const slider = document.getElementById('voucher-slider');
+        const btnNext = document.getElementById('voucher-next');
+        const btnPrev = document.getElementById('voucher-prev');
+
+        const scrollAmount = 120; // width of one item approx
+
+        btnNext.addEventListener('click', () => {
+          slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        btnPrev.addEventListener('click', () => {
+          slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+
+
+@* <html lang="vi">
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -126,4 +477,4 @@
 </main>
 
 
-</html>
+</html> *@

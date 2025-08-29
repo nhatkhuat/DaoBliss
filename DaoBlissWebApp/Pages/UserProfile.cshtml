@@ -1,0 +1,169 @@
+﻿@page
+@model DaoBlissWebApp.Pages.UserProfileModel
+@{
+    ViewData["Title"] = "Hồ sơ người dùng";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thông tin tài khoản</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        /* Custom focus ring color for radio */
+        input[type="radio"]:checked + label::before {
+            border-color: #3f6212;
+            background-color: #3f6212;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-[14px] text-[#3f6212]">
+    <div class="min-h-screen flex justify-center items-start pt-16 px-4">
+        <div class="flex flex-col md:flex-row gap-10 max-w-7xl w-full">
+            <!-- Left sidebar -->
+            <aside class="border border-[#e6e8e0] rounded-lg p-6 w-full max-w-xs select-none">
+                <p class="mb-2 text-[14px] font-normal text-[#3f6212]">
+                    Xin chào,
+                </p>
+                <p class="mb-6 text-[16px] font-semibold text-[#4a6a0a]">
+                    Tuấn Anh Nguyễn
+                </p>
+                <nav class="flex flex-col gap-4 text-[14px] font-semibold">
+                    <a href="#"
+                       class="flex items-center gap-3 text-[#e38d2d] cursor-pointer">
+                        <i class="fas fa-user-circle text-[18px]"></i>
+                        Thông tin cá nhân
+                    </a>
+                    <a href="#"
+                       class="flex items-center gap-3 text-[#4a6a0a] cursor-pointer">
+                        <i class="fas fa-money-bill-wave text-[18px]"></i>
+                        Danh sách nạp tiền
+                    </a>
+                    <a href="#"
+                       class="flex items-center gap-3 text-[#4a6a0a] cursor-pointer">
+                        <i class="fas fa-clipboard-list text-[18px]"></i>
+                        Danh sách đơn hàng
+                    </a>
+                    <a href="#"
+                       class="flex items-center gap-3 text-[#4a6a0a] cursor-pointer">
+                        <i class="fas fa-seedling text-[18px]"></i>
+                        Hạng thành viên
+                    </a>
+                    <a href="#"
+                       class="flex items-center gap-3 text-[#4a6a0a] cursor-pointer">
+                        <i class="fas fa-envelope-open-text text-[18px]"></i>
+                        Gửi Ý Kiến Cho DaoBliss
+                    </a>
+                    <a href="#"
+                       class="flex items-center gap-3 text-[#4a6a0a] cursor-pointer">
+                        <i class="fas fa-undo-alt text-[18px]"></i>
+                        Thoát
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Right content -->
+            <main class="flex-1 max-w-4xl">
+                <h1 class="text-[20px] font-normal mb-8">Thông tin tài khoản</h1>
+                <form class="space-y-6 max-w-3xl">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
+                        <label for="fullname"
+                               class="w-full sm:w-40 text-[14px] font-normal mb-1 sm:mb-0">Họ Tên <span class="text-[#3f6212]">*</span></label>
+                        <input id="fullname"
+                               type="text"
+                               value="Tuấn Anh Nguyễn"
+                               class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#3f6212] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]" />
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
+                        <label for="phone"
+                               class="w-full sm:w-40 text-[14px] font-normal mb-1 sm:mb-0">Số điện thoại <span class="text-[#3f6212]">*</span></label>
+                        <input id="phone"
+                               type="text"
+                               value="0332029341"
+                               class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#3f6212] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]" />
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
+                        <label for="email"
+                               class="w-full sm:w-40 text-[14px] font-normal mb-1 sm:mb-0">Email</label>
+                        <input id="email"
+                               type="email"
+                               value="nguyentuananh194196@gmail.com"
+                               class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#3f6212] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]" />
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
+                        <label for="address"
+                               class="w-full sm:w-40 text-[14px] font-normal mb-1 sm:mb-0">Địa chỉ</label>
+                        <input id="address"
+                               type="text"
+                               placeholder="Địa chỉ cụ thể (tên đường, số nhà, ...)"
+                               class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#a3a97a] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]" />
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
+                        <label for="location"
+                               class="w-full sm:w-40 text-[14px] font-normal mb-1 sm:mb-0">Tỉnh/thành</label>
+                        <div class="flex gap-3 flex-wrap sm:flex-nowrap flex-1">
+                            <select class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#a3a97a] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]">
+                                <option>Chọn Tỉnh/th...</option>
+                            </select>
+                            <select class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#a3a97a] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]">
+                                <option>Chọn Quận/...</option>
+                            </select>
+                            <select class="flex-1 border border-[#e6e8e0] rounded-md px-4 py-2 text-[14px] text-[#a3a97a] placeholder:text-[#a3a97a] focus:outline-none focus:ring-1 focus:ring-[#3f6212]">
+                                <option>Chọn Phường...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
+                        <span class="w-full sm:w-40 text-[14px] font-normal mb-1 sm:mb-0">Giới tính</span>
+                        <div class="flex gap-8 items-center text-[14px] font-normal text-[#3f6212]">
+                            <div class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio"
+                                       id="male"
+                                       name="gender"
+                                       class="hidden peer"
+                                       checked />
+                                <label for="male"
+                                       class="relative flex items-center cursor-pointer select-none before:content-[''] before:inline-block before:w-4 before:h-4 before:border before:border-[#3f6212] before:rounded-full before:mr-2 before:transition-colors peer-checked:before:bg-[#3f6212]">Nam</label>
+                            </div>
+                            <div class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio"
+                                       id="female"
+                                       name="gender"
+                                       class="hidden peer" />
+                                <label for="female"
+                                       class="relative flex items-center cursor-pointer select-none before:content-[''] before:inline-block before:w-4 before:h-4 before:border before:border-[#3f6212] before:rounded-full before:mr-2 before:transition-colors peer-checked:before:bg-[#3f6212]">Nữ</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="#"
+                           class="text-[14px] font-semibold text-[#4a6a0a] underline">Thay Đổi Mật Khẩu</a>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="w-full bg-[#3f6212] text-white text-[18px] font-semibold py-4 rounded-md hover:bg-[#36510f] transition-colors">
+                            Cập nhật tài khoản
+                        </button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <button aria-label="Chat support"
+            class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-[#3f6212] text-white flex flex-col items-center justify-center gap-1 shadow-lg">
+        <i class="fas fa-comments text-lg"></i>
+        <span class="text-[8px] leading-none">Liên hệ</span>
+    </button>
+</body>
+</html>
